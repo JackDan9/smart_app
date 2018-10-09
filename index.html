@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="no-js">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>-->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+        <title>智慧信阳</title>
+
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="dist/build.js?ver=201708081635"></script>
+        <script src='//kefu.easemob.com/webim/easemob.js'></script>
+        <script>
+            window.easemobim = window.easemobim || {};
+            easemobim.config = {
+                hide: true,
+                autoConnect: true
+            };
+        </script>
+        <script>
+        var bodyheight = window.innerHeight;
+        var style = document.createElement('style');
+        style.type = 'text/css';
+        var cssval = '.page-height{height:' + bodyheight + 'px }';
+        cssval += '  .mint-loadmore-top {margin-top: -61px;}';
+        style.innerHTML = cssval;
+        document.getElementsByTagName('HEAD').item(0).appendChild(style);
+        </script>
+    </body>
+</html>

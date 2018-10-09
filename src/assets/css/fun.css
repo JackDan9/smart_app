@@ -1,0 +1,14 @@
+body { background:#f3f3f3; }
+.navtop { background:#fd484e; z-index:12345; }
+.fun-box{ overflow:hidden; background:#ffffff;}
+.fun-box .pic{ position:relative;width:100%; overflow:hidden;}
+.fun-box .info{ overflow:hidden; padding:0.1rem;}
+.fun-box .info .p1{ font-size:0.16rem;}
+.fun-box .info .p2{ font-size:0.14rem; color:#787878; margin-top:0.05rem;  }
+.fun-box .info .p2 .fr{ color:#333}
+.classify-box{ overflow:hidden; padding:0.1rem 0;  }
+.classify-box li{ width:20%; margin-left:2.5%; margin-right:2.5%; float:left; background:#ffffff; margin-top:0.05rem; margin-bottom:0.05rem;
+    padding:0.15rem 0; text-align:center;  }
+.classify-box li a{ font-size:0.14rem;}
+
+

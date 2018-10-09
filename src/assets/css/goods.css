@@ -1,0 +1,13 @@
+body { background:#f3f3f3; }
+.navtop { background:#fd484e; z-index:12345; }
+.goods-box{ overflow:hidden; background:#ffffff; margin-bottom:0.1rem;}
+.goods-box .pic{ position:relative; width:100%; overflow:hidden;}
+.goods-box .pic .heart { position:absolute; right:0.2rem; bottom:0.1rem; width:0.25rem; height:0.25rem;
+    background:url("../images/heart.png") center center no-repeat; background-size:contain; }
+.goods-box .pic .red-heart { position:absolute; right:0.2rem; bottom:0.1rem; width:0.25rem; height:0.25rem;
+    background:url("../images/red-heart.png") center center no-repeat; background-size:contain; }
+.goods-box .info{ overflow:hidden; padding:0.1rem;}
+.goods-box .info .p1{ font-size:0.16rem;}
+.goods-box .info .p2{ font-size:0.14rem; color:#787878; margin-top:0.05rem;  }
+
+
