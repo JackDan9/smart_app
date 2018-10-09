@@ -1,7 +1,7 @@
 {
   "name": "smart_xy",
   "description": "app for smart xy",
-  "author": "lamudatech.com",
+  "author": "jackdan",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0 --port 9001 --inline --hot",
