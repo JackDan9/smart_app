@@ -4,10 +4,12 @@ import VueResource from 'vue-resource'
 import Config from './config.js'
 import Store from './store.js'
 import BufferList from './buffer.js'
+import { i18n } from './i18n';
 
-import './assets/css/common.css'
-import 'mint-ui/lib/style.css'
-
+// import './assets/css/common.css'
+// import 'mint-ui/lib/style.css'
+import 'mint-ui/lib/style'
+import './assets/css/common'
 
 import FastClick from 'fastclick'
 if ('addEventListener' in document) {
@@ -60,5 +62,6 @@ router.beforeEach( (to,from,next) => {
 
 new Vue({
   router,
+  i18n,
   template : '<div id="app"><router-view class="view"></router-view></div>',
 }).$mount('#app')
