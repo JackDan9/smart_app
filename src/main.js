@@ -6,10 +6,8 @@ import Store from './store.js'
 import BufferList from './buffer.js'
 import { i18n } from './i18n';
 
-// import './assets/css/common.css'
-// import 'mint-ui/lib/style.css'
-import 'mint-ui/lib/style'
-import './assets/css/common'
+import './assets/css/common.css'
+import 'mint-ui/lib/style.css'
 
 import FastClick from 'fastclick'
 if ('addEventListener' in document) {
