@@ -6,7 +6,7 @@ const aboutUs = {
     fourthContent: "店铺合作: ",
     fifthContent: "微信公众号：",
     sixthContent: "联系电话: ",
-    version: "版本"
+    version: "版本 V1.0.0"
 }
 
 export { aboutUs }

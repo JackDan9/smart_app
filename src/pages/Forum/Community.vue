@@ -117,9 +117,9 @@
   </div>
 </template>
 <script>
-import Loading from "../../components/Loading.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config.js";
+import Loading from "@/components/Loading.vue";
+import Tab from "@/components/Tab.vue";
+import Config from "@/config/config.js";
 import { Toast } from "mint-ui";
 export default {
   components: {

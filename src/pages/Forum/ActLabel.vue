@@ -23,9 +23,9 @@
 </template>
 
 <script>
-import Error from "../../components/Error.vue";
-import Store from "../../store.js";
-import Config from "../../config.js";
+import Error from "@/components/Error";
+import Store from "@/store/store";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
 export default {
   components: {
@@ -158,8 +158,7 @@ export default {
   display: inline-block;
   width: 0.2rem;
   height: 0.2rem;
-  background: url(../../assets/images/forum/community/icon-back.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/icon-back.png") center center no-repeat;
   background-size: contain;
   margin-top: 0.14rem;
   margin-left: 0.05rem;
@@ -174,7 +173,7 @@ export default {
 }
 .labelNav .finish {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.45rem;
   height: 0.25rem;
   margin-right: 0.09rem;
@@ -207,7 +206,7 @@ export default {
   height: 0.5rem;
   margin-left: 3%;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.16rem;
 }
 .labelColor .color {

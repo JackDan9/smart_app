@@ -1,5 +1,5 @@
 {
-  "name": "smart_xy",
+  "name": "smart_app",
   "description": "app for smart xy",
   "author": "jackdan",
   "private": true,
@@ -18,7 +18,7 @@
     "require": "^2.4.20",
     "semver": "^7.1.0",
     "shelljs": "^0.8.3",
-    "vue": "^2.0.3",
+    "vue": "^2.6.11",
     "vue-i18n": "^8.15.1"
   },
   "devDependencies": {
@@ -40,33 +40,45 @@
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^1.0.6",
     "css-loader": "^0.28.0",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^3.0.0",
     "fastclick": "^1.0.6",
     "file-loader": "^0.9.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "mockjs": "^1.1.0",
     "node-notifier": "^6.0.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^4.0.3",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.8",
+    "postcss-url": "^7.2.1",
     "portfinder": "^1.0.25",
     "rimraf": "^3.0.0",
     "style-loader": "^0.13.1",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "url-loader": "^3.0.0",
+    "uglifyjs-webpack-plugin": "^1.1.1",
+    "url-loader": "^0.5.8",
     "vue-awesome-swiper": "^2.3.8",
     "vue-loader": "^13.3.0",
     "vue-resource": "1.0.3",
     "vue-router": "^2.0.1",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.5.2",
     "vue-swiper": "^0.5.0",
+    "vue-template-compiler": "^2.5.2",
     "vuex": "^2.2.1",
-    "webpack": "^4.41.3",
+    "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.1.11",
+    "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.2.2",
     "weixin-js-sdk": "^1.2.0"
-  }
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

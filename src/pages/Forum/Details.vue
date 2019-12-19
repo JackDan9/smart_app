@@ -169,10 +169,10 @@
       </div>
     </div>
     <div id="toTop" v-on:click="toTop()" v-bind:class="[isClass > 0 ? '' : 'dn']">
-      <img src="../../assets/images/forum/cdetail/toTopHeader.png" />
+      <img src="~@/assets/images/forum/cdetail/toTopHeader.png" />
     </div>
     <div id="comment" v-on:click="commentFir()">
-      <img src="../../assets/images/forum/cdetail/commentIcon.png" />
+      <img src="~@/assets/images/forum/cdetail/commentIcon.png" />
     </div>
     <div id="join" v-bind:class="[bar.type != 3 ? 'join' : 'dn']" v-on:click="join()">
       <img v-bind:src="[isJoinClass ? joined : inJoin]" />
@@ -181,12 +181,12 @@
 </template>
 
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
-import inJoin from "../../assets/images/forum/cdetail/inJoin.png";
-import joined from "../../assets/images/forum/cdetail/joined.png";
-import Config from "../../config.js";
-import Store from "../../store.js";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
+import inJoin from "~@/assets/images/forum/cdetail/inJoin.png";
+import joined from "~@/assets/images/forum/cdetail/joined.png";
+import Config from "@/config/config";
+import Store from "@/store/store";
 import { Toast } from "mint-ui";
 export default {
   data() {
@@ -378,12 +378,11 @@ export default {
 }
 .communityNav .back {
   display: inline-block;
-  float: left;
+  /* float: left; */
   overflow: hidden;
   width: 0.2rem;
   height: 0.2rem;
-  background: url(../../assets/images/forum/community/icon-back.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/icon-back.png") center center no-repeat;
   background-size: contain;
   margin-top: 0.14rem;
   margin-left: 0.05rem;
@@ -402,14 +401,13 @@ export default {
 }
 .communityNav .share {
   display: inline-block;
-  float: right;
+  /* float: right; */
   overflow: hidden;
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.14rem;
   margin-right: 0.1rem;
-  background: url(../../assets/images/forum/cdetail/share.png) center center
-    no-repeat;
+  background: url("~@/assets/images/forum/cdetail/share.png") center center no-repeat;
   background-size: contain;
 }
 /* 主页 */
@@ -465,7 +463,7 @@ export default {
   display: block;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.15rem;
 }
 .actInfo .actTime .left {
@@ -473,19 +471,18 @@ export default {
 }
 .timeIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/time.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/time.png") center center no-repeat;
   background-size: contain;
 }
 .actInfo .actTime .right {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-right: 0.1rem;
   color: #f1f1f1;
 }
@@ -494,7 +491,7 @@ export default {
   display: block;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.15rem;
 }
 .actInfo .actPlace .left {
@@ -502,19 +499,18 @@ export default {
 }
 .placeIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/place.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/place.png") center center no-repeat;
   background-size: contain;
 }
 .actInfo .actPlace .right {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-right: 0.1rem;
   color: #f1f1f1;
 }
@@ -522,7 +518,7 @@ export default {
 .actInfo .actContact {
   display: block;
   height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.15rem;
 }
 .actInfo .actContact .left {
@@ -530,12 +526,12 @@ export default {
 }
 .contactIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/contact.png") center
+  background: url("~@/assets/images/forum/postactivity/contact.png") center
     center no-repeat;
   background-size: contain;
 }
@@ -553,13 +549,12 @@ export default {
 }
 .weChat .weChatIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/wechat.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/wechat.png") center center no-repeat;
   background-size: contain;
 }
 .weChat .weChatCon {
@@ -571,12 +566,12 @@ export default {
 }
 .qq .qqIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/qq.png") center center
+  background: url("~@/assets/images/forum/postactivity/qq.png") center center
     no-repeat;
   background-size: contain;
 }
@@ -598,7 +593,7 @@ export default {
 .info .personIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 0.5rem;
@@ -623,8 +618,7 @@ export default {
   display: inline-block;
   width: 0.6rem;
   height: 0.2rem;
-  background: url(../../assets/images/forum/cdetail/hostIconCon.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/cdetail/hostIconCon.png") center center no-repeat;
   background-size: contain;
 }
 /* 楼主的帖子内容 */
@@ -685,16 +679,14 @@ export default {
   display: inline-block;
   width: 50%;
   height: 0.3rem;
-  background: url(../../assets/images/forum/cdetail/likedIcon.png) center center
-    no-repeat;
+  background: url("~@/assets/images/forum/cdetail/likedIcon.png") center center no-repeat;
   background-size: contain;
 }
 .noLikedIcon {
   display: inline-block;
   width: 50%;
   height: 0.3rem;
-  background: url(../../assets/images/forum/cdetail/noLikedIcon.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/cdetail/noLikedIcon.png") center center no-repeat;
   background-size: contain;
 }
 .likeNum {
@@ -718,14 +710,13 @@ export default {
 }
 .personNumIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   overflow: hidden;
   width: 0.16rem;
   height: 0.16rem;
   margin-top: 0.15rem;
   margin-right: 0.05rem;
-  background: url("../../assets/images/forum/cdetail/joinNumIcon.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/cdetail/joinNumIcon.png") center center no-repeat;
   background-size: contain;
 }
 .personNumCon {
@@ -756,8 +747,7 @@ export default {
   width: 0.2rem;
   height: 0.2rem;
   border-radius: 0.2rem;
-  background: url("../../assets/images/user/icon-male.png") center center
-    no-repeat;
+  background: url("~@/assets/images/user/icon-male.png") center center no-repeat;
   background-size: 0.12rem, 0.12rem;
   background-color: #28b4aa;
 }
@@ -770,8 +760,7 @@ export default {
   width: 0.2rem;
   height: 0.2rem;
   border-radius: 0.2rem;
-  background: url("../../assets/images/user/icon-female.png") center center
-    no-repeat;
+  background: url("~@/assets/images/user/icon-female.png") center center no-repeat;
   background-size: 0.12rem, 0.12rem;
   background-color: #28b4aa;
 }
@@ -809,7 +798,7 @@ export default {
 .commentPerson .icon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 0.5rem;
@@ -840,29 +829,27 @@ export default {
 /* 其他用户点赞与否 */
 .commentPerson .interaction {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-top: 0.15rem;
 }
 .interaction .liked {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 0.18rem;
   height: 0.18rem;
   margin-top: 0.02rem;
-  background: url("../../assets/images/forum/cdetail/likedIcon.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/cdetail/likedIcon.png") center center no-repeat;
   background-size: contain;
 }
 .interaction .noLiked {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 0.18rem;
   height: 0.18rem;
   margin-top: 0.02rem;
-  background: url("../../assets/images/forum/cdetail/commentNoLiked.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/cdetail/commentNoLiked.png") center center no-repeat;
   background-size: contain;
 }
 .interaction .likedNum {
@@ -873,12 +860,11 @@ export default {
 }
 .interaction .commentIcon {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.16rem;
   height: 0.16rem;
   margin-top: 0.04rem;
-  background: url("../../assets/images/forum/cdetail/comment.png") center center
-    no-repeat;
+  background: url("~@/assets/images/forum/cdetail/comment.png") center center no-repeat;
   background-size: contain;
 }
 /* 评论内容 */
@@ -888,7 +874,7 @@ export default {
   height: 0.5rem;
   margin-left: 3%;
   line-height: 0.5rem;
-  vertical-align: 0.5rem;
+  /* vertical-align: 0.5rem; */
 }
 .commentContent .content {
   display: inline-block;

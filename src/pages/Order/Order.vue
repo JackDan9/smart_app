@@ -43,8 +43,8 @@
       </div>
       <div class="goods">
         <ul>
-          <template v-for="product in products">
-            <li>
+          <template v-for="(product, index) in products">
+            <li :key="index">
               <div class="fl">{{product['name']}}</div>
               <div class="fr">
                 <span class="num">×{{product['num']}}</span>
@@ -90,8 +90,7 @@
             v-bind:class="[status2 ? 'current' : '']"
             v-if="usegold"
             name="usegold"
-            v-on:click="addChange2('usegold')"
-          >
+            v-on:click="addChange2('usegold')">
             <i class="radio"></i>
             <em>
               使用
@@ -102,8 +101,7 @@
             v-if="half_gold"
             v-bind:class="[status2 ? '' : 'current']"
             name="half_gold"
-            v-on:click="addChange2('half_gold')"
-          >
+            v-on:click="addChange2('half_gold')">
             <i class="radio"></i>
             <em>
               使用

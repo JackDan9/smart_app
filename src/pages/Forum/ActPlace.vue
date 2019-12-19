@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Config from "../../config.js";
-import Store from "../../store.js";
+import Config from "@/config/config";
+import Store from "@/store/store";
 import { Toast } from "mint-ui";
 
 export default {
@@ -60,12 +60,12 @@ export default {
 }
 .navTop .backIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.14rem;
   margin-left: 0.1rem;
-  background: url("../../assets/images/back-white.png") center center no-repeat;
+  background: url("~@/assets/images/back-white.png") center center no-repeat;
   background-size: contain;
 }
 .navTop .sendActPlace {
@@ -77,7 +77,7 @@ export default {
 }
 .navTop .sendIcon {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.45rem;
   height: 0.25rem;
   margin-right: 0.09rem;

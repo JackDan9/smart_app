@@ -15,37 +15,33 @@
       class="page-height order-list"
       v-infinite-scroll="loadMore"
       infinite-scroll-disabled="isLoading"
-      infinite-scroll-distance="10"
-    >
+      infinite-scroll-distance="10">
       <div class="topnav">
         <div class="navList">
           <div
             class="item"
             v-bind:class="[isClass === 'con1' ? 'current' : '']"
-            v-on:click="addChange('con1')"
-          >
+            v-on:click="addChange('con1')">
             <a>送货上门</a>
           </div>
           <div
             class="item"
             v-bind:class="[isClass === 'con2' ? 'current' : '']"
-            v-on:click="addChange('con2')"
-          >
+            v-on:click="addChange('con2')">
             <a>到店消费</a>
           </div>
           <div
             class="item"
             v-bind:class="[isClass === 'con3' ? 'current' : '']"
-            v-on:click="addChange('con3')"
-          >
+            v-on:click="addChange('con3')">
             <a>其他</a>
           </div>
         </div>
       </div>
       <div class="olist">
         <ul>
-          <template v-for="order_data in orders">
-            <li>
+          <template v-for="(order_data, index) in orders">
+            <li :key="index">
               <router-link :to="{ path: '/orderlist/'+order_data['id']}">
                 <div class="img">
                   <img
@@ -72,24 +68,24 @@
               </router-link>
               <div
                 class="more"
-                v-bind:class="[order_data['state'] == 1  ? '':[order_data['state'] == 3  ? '' : 'dn']]"
-              >
+                v-bind:class="[order_data['state'] == 1  ? '':[order_data['state'] == 3  ? '' : 'dn']]">
                 <div
                   class="pay"
                   v-bind:class="[order_data['state'] == 1  ? '' : 'dn']"
-                  v-on:click="addPay(order_data['id'])"
-                >去付款</div>
+                  v-on:click="addPay(order_data['id'])">
+                  去付款
+                </div>
                 <router-link
                   :to="{ path: '/ccomment/'+order_data['id']}"
-                  v-bind:class="[order_data['state'] == 3  ? '' : 'dn']"
-                >
+                  v-bind:class="[order_data['state'] == 3  ? '' : 'dn']">
                   <div class="pay">评价</div>
                 </router-link>
                 <div
                   class="obtn"
                   v-bind:class="[order_data['state'] == 1  ? '' : 'dn']"
-                  v-on:click="close(order_data['id'])"
-                >关闭订单</div>
+                  v-on:click="close(order_data['id'])">
+                  关闭订单
+                </div>
               </div>
             </li>
           </template>
@@ -100,11 +96,11 @@
 </template>
 
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
 import { Toast } from "mint-ui";
-import Config from "../../config.js";
-import Store from "../../store.js";
+import Config from "@/config/config.js";
+import Store from "@/store/store.js";
 
 export default {
   components: {

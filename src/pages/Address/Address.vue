@@ -15,8 +15,9 @@
       <div class="addr-list">
         <ul>
           <template v-for="address in addresss">
-            <li v-bind:class="[address['isdefault'] > 0 ? 'current' : '']">
-              >
+            <li 
+              v-bind:class="[address['isdefault'] > 0 ? 'current' : '']" 
+              v-bind:key="address['isdefault']">
               <div class="left" v-on:click="addChange(address.id)">
                 <p class="p1">{{address['address']}}{{address['note']}}</p>
                 <p class="p2">
@@ -45,7 +46,8 @@ import Error from "../../components/Error.vue";
 import Tab from "../../components/Tab.vue";
 import Config from "../../config/config.js";
 import { Toast } from "mint-ui";
-import Store from "../../store.js";
+// import Store from "../../store.js";
+import Store from "@/store.js"
 
 export default {
   components: {

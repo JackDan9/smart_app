@@ -1,13 +1,57 @@
 import App from './pages/App.vue'
+/**
+ * AboutUs Route
+ */
+import Aboutus from './pages/AboutUs/Aboutus.vue'
+/**
+ * Address Route
+ */
+import Address from './pages/Address/Address.vue'
+import AddressAdd from './pages/Address/AddressAdd.vue'
+/**
+ * Charity Route
+ */
+import Charity from './pages/Charity/Charity.vue'
+import CharityList from './pages/Charity/CharityList.vue'
+/**
+ * CheckAll Route
+ */
 import CheckAll from './pages/CheckAll/CheckAll.vue'
+/**
+ * Cooperate Route
+ */
+import Cooperate from './pages/Cooperate/Cooperate.vue'
+import CooperateHome from './pages/Cooperate/CooperateHome.vue'
+/**
+ * Film Route
+ */
+import FilmTv from './pages/Film/FilmTv.vue'
+import FilmList from './pages/Film/FilmList.vue'
+import FilmDetail from './pages/Film/FilmDetail.vue'
+/**
+ * Forum Route
+ */
+import ActLabel from './pages/Forum/ActLabel.vue'
+import ActPlace from './pages/Forum/ActPlace.vue'
+import Community from './pages/Forum/Community.vue'
+import Details from './pages/Forum/Details.vue'
+import EndDate from './pages/Forum/EndDate.vue'
+import Module from './pages/Forum/Module.vue'
+import PostActivity from './pages/Forum/PostActivity.vue'
+import PostComment from './pages/Forum/PostComment.vue'
+import PostCommon from './pages/Forum/PostCommon.vue'
+import PostType from './pages/Forum/PostType.vue'
+import QqSend from './pages/Forum/QqSend.vue'
+import Reply from './pages/Forum/Reply.vue'
+import StartDate from './pages/Forum/StartDate.vue'
+import WeChatSend from './pages/Forum/WechatSend.vue'
+
 import NotFound from './pages/NotFound.vue'
 import FunList from './pages/Fun/FunList.vue'
 import FunCat from './pages/Fun/FunCat.vue'
 import Fun from './pages/Fun/Fun.vue'
 import Service from './pages/Service.vue'
 import Thing from './pages/Thing.vue'
-import CharityList from './pages/Charity/CharityList.vue'
-import Charity from './pages/Charity/Charity.vue'
 import Category from './pages/Category.vue'
 import New from './pages/News/New.vue'
 import NewList from './pages/News/NewList.vue'
@@ -20,20 +64,17 @@ import Nearby from './pages/Nearby/Nearby.vue'
 import Discount from './pages/Discount.vue'
 import Trade from './pages/Trade.vue'
 import User from './pages/User.vue'
-import CooperateHome from './pages/Cooperate/CooperateHome.vue'
-import Cooperate from './pages/Cooperate/Cooperate.vue'
 import Mail from './pages/Mail.vue'
 import Feedback from './pages/Feedback.vue'
 import Userset from './pages/Userset.vue'
 import Myset from './pages/Myset.vue'
 import Gold from './pages/Gold.vue'
 import Signature from './pages/Signature.vue'
-import Aboutus from './pages/AboutUs/Aboutus.vue'
 import Nick from './pages/Nick.vue'
 import Pic from './pages/Pic.vue'
 import Search from './pages/Search.vue'
 import Comment from './pages/News/Comment.vue'
-import Product from './pages/Product.vue'
+import Product from './pages/SpecialOffer/Product.vue'
 import Company from './pages/Company.vue'
 import Collect from './pages/Collect.vue'
 import Message from './pages/Message.vue'
@@ -41,14 +82,9 @@ import MsgSet from './pages/MsgSet.vue'
 import Order from './pages/Order/Order.vue'
 import OrderList from './pages/Order/OrderList.vue'
 import OrderDetail from './pages/Order/OrderDetail.vue'
-import Address from './pages/Address/Address.vue'
-import AddressAdd from './pages/Address/AddressAdd.vue'
 import Pay from './pages/Pay.vue'
 import Explain from './pages/Explain.vue'
-import Ccomment from './pages/Ccomment.vue'
-import FilmTv from './pages/Film/FilmTv.vue'
-import FilmList from './pages/Film/FilmList.vue'
-import FilmDetail from './pages/Film/FilmDetail.vue'
+import Ccomment from './pages/Fun/Ccomment.vue'
 import Notice from './pages/Notice.vue'
 import Tel from './pages/Tel.vue'
 import Success from './pages/Success.vue'
@@ -63,20 +99,6 @@ import BeforeLogin from './pages/Login/BeforeLogin.vue'
 import FastLogin from './pages/Login/FastLogin.vue'
 import LoginVerify from './pages/Login/LoginVerify.vue'
 import RegisterProtocol from './pages/Login/RegisterProtocol.vue'
-import Community from './pages/Forum/Community.vue'
-import Module from './pages/Forum/Module.vue'
-import Details from './pages/Forum/Details.vue'
-import PostComment from './pages/Forum/PostComment.vue'
-import Reply from './pages/Forum/Reply.vue'
-import PostType from './pages/Forum/PostType.vue'
-import PostActivity from './pages/Forum/PostActivity.vue'
-import PostCommon from './pages/Forum/PostCommon.vue'
-import StartDate from './pages/Forum/StartDate.vue'
-import EndDate from './pages/Forum/EndDate.vue'
-import ActPlace from './pages/Forum/ActPlace.vue'
-import ActLabel from './pages/Forum/ActLabel.vue'
-import QqSend from './pages/Forum/QqSend.vue'
-import WeChatSend from './pages/Forum/WechatSend.vue'
 
 const routes = [
     {path: '/',component: App, name: "主页"},
@@ -115,7 +137,6 @@ const routes = [
     {path: '/pic/', component: Pic, name: "图片"},
     {path: '/search/:type', component: Search, name: "查找"},
     {path: '/comment/:id', component: Comment, name: "评论详情"},
-    {path: '/product/:id', component: Product, name: "产品详情"},
     {path: '/company/:id', component: Company, name: "店铺详情"},
     {path: '/collect/', component: Collect, name: "收藏"},
     {path: '/message/', component: Message, name: "消息提醒"},
@@ -136,6 +157,7 @@ const routes = [
     {path: '/success/:id', component:Success, name: "支付成功的页面"},
     {path: '/answer/:id', component: Answer, name: "疑问解答"},
     {path: '/sendcomment/:id', component: SendComment, name: "新闻评论"},
+    {path: '/product/:id', component: Product, name: "产品详情"},
     {path: '/productlist/', component: ProductList, name: "产品列表"},
     {path: '/productdetail/:id', component: ProductDetail, name: "折扣产品详情"},
     {path: '/commentdetail/:id', component: CommentDetail, name: "评论页面"},

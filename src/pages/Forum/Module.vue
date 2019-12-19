@@ -86,15 +86,15 @@
 </template>
 
 <script>
-import Config from "../../config.js";
-import Store from "../../store.js";
+import Config from "@/config/config.js";
+import Store from "@/store/store.js";
 import { Toast } from "mint-ui";
-import gamePic from "../../assets/images/forum/community/modules/game.jpg";
-import foodPic from "../../assets/images/forum/community/modules/food.jpg";
-import outDoorPic from "../../assets/images/forum/community/modules/outdoor.jpg";
-import brokeNewsPic from "../../assets/images/forum/community/modules/brokenews.jpg";
-import photoPic from "../../assets/images/forum/community/modules/photo.jpg";
-import chatPic from "../../assets/images/forum/community/modules/chat.jpg";
+import gamePic from "~@/assets/images/forum/community/modules/game.jpg";
+import foodPic from "~@/assets/images/forum/community/modules/food.jpg";
+import outDoorPic from "~@/assets/images/forum/community/modules/outdoor.jpg";
+import brokeNewsPic from "~@/assets/images/forum/community/modules/brokenews.jpg";
+import photoPic from "~@/assets/images/forum/community/modules/photo.jpg";
+import chatPic from "~@/assets/images/forum/community/modules/chat.jpg";
 export default {
   data() {
     return {
@@ -203,7 +203,6 @@ export default {
 </script>
 
 <style scoped>
-/* 头部导航栏 */
 .nav {
   position: relative;
   z-index: 5030;
@@ -222,7 +221,7 @@ export default {
   display: inline-block;
   width: 0.2rem;
   height: 0.2rem;
-  background: url("../../assets/images/forum/community/icon-back.png") center center no-repeat;
+  background: url("~@/assets/images/forum/community/icon-back.png") center center no-repeat;
   background-size: contain;
   margin-top: 0.14rem;
   margin-left: 0.05rem;
@@ -239,16 +238,14 @@ export default {
   display: inline-block;
   width: 0.2rem;
   height: 0.2rem;
-  background: url("../../assets/images/forum/community/posting-white.png") center center no-repeat;
+  background: url("~@/assets/images/forum/community/posting-white.png") center center no-repeat;
   background-size: contain;
 }
-/* 主页面 */
 .communityPage {
   padding-top: 0.5rem;
   width: 100%;
   height: 100%;
 }
-/* 专区 */
 .communityPage .area {
   display: block;
 }
@@ -256,14 +253,12 @@ export default {
   display: inline-block;
   width: 100%;
 }
-/* 置顶 */
 .stick {
   display: block;
   width: 100%;
   margin-top: 10px;
   border-top: 8px solid #c0c0c0;
 }
-/* 官方活动 */
 .officialAct {
   display: block;
   width: 100%;
@@ -273,7 +268,6 @@ export default {
   overflow: hidden;
 }
 .officialAct .iconOff {
-  float: left;
   display: inline-block;
   width: 0.4rem;
   height: 0.4rem;
@@ -296,7 +290,6 @@ export default {
 .officialAct .offCon {
   display: inline-block;
   width: 69%;
-  float: right;
   font-size: 0.13rem;
 }
 /* 活动 */
@@ -309,13 +302,12 @@ export default {
   overflow: hidden;
 }
 .act .icon {
-  float: left;
   display: inline-block;
   width: 0.4rem;
   height: 0.4rem;
   border-radius: 0.4rem;
   margin-top: 0.05rem;
-  background: url("../../assets/images/forum/community/stick/icon-trd.png") center center no-repeat;
+  background: url("~@/assets/images/forum/community/stick/icon-trd.png") center center no-repeat;
   background-size: contain;
 }
 .iconAct {
@@ -329,7 +321,7 @@ export default {
 }
 .act .con {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 70%;
   font-size: 0.13rem;
 }
@@ -386,7 +378,7 @@ export default {
   overflow: hidden;
   width: 0.45rem;
   height: 0.45rem;
-  float: left;
+  /* float: left; */
   border-radius: 0.45rem;
   margin-right: 0.1rem;
   margin-left: 0.1rem;
@@ -409,7 +401,7 @@ export default {
   height: auto;
   margin-top: 0.1rem;
   line-height: 0.18rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 .labelFir .act {
   display: inline-block;
@@ -425,14 +417,14 @@ export default {
 }
 .labelFir .actTitle {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 76%;
   font-size: 0.16rem;
   letter-spacing: 0.01rem;
 }
 .labelFir .actNotTitle {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 100%;
   padding: 0.1rem 0;
   font-size: 0.16rem;
@@ -491,11 +483,11 @@ export default {
   width: 100%;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 .bottom .left {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 66%;
   height: 0.5rem;
   line-height: 0.05rem;
@@ -529,12 +521,13 @@ export default {
 .joinIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 0.16rem;
   height: 0.16rem;
   margin-top: 0.15rem;
   margin-right: 0.05rem;
-  background: url("../../assets/images/forum/community/bottom/join.png") center center no-repeat;
+  background: url("~@/assets/images/forum/community/bottom/join.png") center
+    center no-repeat;
   background-size: contain;
 }
 .bottom .comment {
@@ -544,12 +537,13 @@ export default {
 .commentIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 0.16rem;
   height: 0.16rem;
   margin-top: 0.17rem;
   margin-right: 0.05rem;
-  background: url("../../assets/images/forum/community/bottom/comment.png") center center no-repeat;
+  background: url("~@/assets/images/forum/community/bottom/comment.png")
+    center center no-repeat;
   background-size: contain;
 }
 </style>

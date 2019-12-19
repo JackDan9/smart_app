@@ -128,8 +128,8 @@
 </template>
 
 <script>
-import Store from "../../store.js";
-import Config from "../../config.js";
+import Store from "@/store/store";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
 export default {
   data() {
@@ -515,7 +515,7 @@ export default {
 }
 .activityNav .send {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.45rem;
   height: 0.25rem;
   margin-right: 0.09rem;
@@ -537,7 +537,7 @@ export default {
   display: block;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.15rem;
 }
 .activityPage .typeList .left {
@@ -545,30 +545,29 @@ export default {
 }
 .typeIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/types.png") center center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/types.png") center center no-repeat;
   background-size: contain;
 }
 .activityPage .typeList .right {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-right: 0.1rem;
   color: #c0c0c0;
 }
 .goIcon {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/go.png") center center
-    no-repeat;
+  background: url("~@/assets/images/forum/postactivity/go.png") center center no-repeat;
   background-size: contain;
 }
 /* 开始时间 */
@@ -576,7 +575,7 @@ export default {
   display: block;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.15rem;
 }
 .activityPage .startTime .left {
@@ -584,31 +583,29 @@ export default {
 }
 .timeIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/time.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/time.png") center center no-repeat;
   background-size: contain;
 }
 .activityPage .startTime .right {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-right: 0.1rem;
   color: #c0c0c0;
 }
 .goIcon {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/go.png") center center
-    no-repeat;
+  background: url("~@/assets/images/forum/postactivity/go.png") center center no-repeat;
   background-size: contain;
 }
 /* 结束时间 */
@@ -616,7 +613,7 @@ export default {
   display: block;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.15rem;
 }
 .activityPage .endTime .left {
@@ -624,31 +621,29 @@ export default {
 }
 .timeIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/time.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/time.png") center center no-repeat;
   background-size: contain;
 }
 .activityPage .endTime .right {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-right: 0.1rem;
   color: #c0c0c0;
 }
 .goIcon {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/go.png") center center
-    no-repeat;
+  background: url("~@/assets/images/forum/postactivity/go.png") center center no-repeat;
   background-size: contain;
 }
 /* 活动地点 */
@@ -656,7 +651,7 @@ export default {
   display: block;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.15rem;
 }
 .activityPage .actPlace .left {
@@ -664,31 +659,29 @@ export default {
 }
 .placeIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/place.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/place.png") center center no-repeat;
   background-size: contain;
 }
 .activityPage .actPlace .right {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-right: 0.1rem;
   color: #c0c0c0;
 }
 .goIcon {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/go.png") center center
-    no-repeat;
+  background: url("~@/assets/images/forum/postactivity/go.png") center center no-repeat;
   background-size: contain;
 }
 /* 活动标签 */
@@ -696,7 +689,7 @@ export default {
   display: block;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0.15rem;
 }
 .activityPage .actLabel .left {
@@ -704,31 +697,29 @@ export default {
 }
 .labelIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/label.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/label.png") center center no-repeat;
   background-size: contain;
 }
 .activityPage .actLabel .right {
   display: inline-block;
-  float: right;
+  /* float: right; */
   margin-right: 0.1rem;
   color: #c0c0c0;
 }
 .goIcon {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/go.png") center center
-    no-repeat;
+  background: url("~@/assets/images/forum/postactivity/go.png") center center no-repeat;
   background-size: contain;
 }
 /* 活动标签展示 */
@@ -754,8 +745,7 @@ export default {
   top: -5px;
   width: 0.15rem;
   height: 0.15rem;
-  background: url("../../assets/images/forum/postactivity/deleteIcon.png")
-    center center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/deleteIcon.png") center center no-repeat;
   background-size: contain;
 }
 /* 联系方式 */
@@ -770,12 +760,12 @@ export default {
 }
 .contactIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/contact.png") center center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/contact.png") center center no-repeat;
   background-size: contain;
 }
 .activityPage .actContact .left {
@@ -789,34 +779,33 @@ export default {
 }
 .qqIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/qq.png") center center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/qq.png") center center no-repeat;
   background-size: contain;
 }
 .activityPage .actContact .right {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 40%;
   height: 0.5rem;
   line-height: 0.5rem;
   margin-right: 0.1rem;
   color: #c0c0c0;
-  color: #c0c0c0;
 }
 .wechatIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
-  background: url("../../assets/images/forum/postactivity/wechat.png") center center no-repeat;
+  background: url("~@/assets/images/forum/postactivity/wechat.png") center center no-repeat;
   background-size: contain;
 }
 /* 标题 */
@@ -857,7 +846,7 @@ export default {
 }
 .weui_uploader_input_wrp {
   display: inline-block;
-  float: right;
+  /* float: right; */
   position: relative;
   width: 90px;
   height: 100px;
@@ -886,8 +875,10 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%.-50%);
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   background-color: #d9d9d9;
 }
 .weui_uploader_input_wrp:after,
@@ -896,8 +887,10 @@ export default {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   background-color: #d9d9d9;
 }
 .weui_uploader_input {
@@ -922,7 +915,6 @@ export default {
 #picture_uploadimg {
   float: right;
 }
-/* 发帖图片展示 */
 .activityPicList {
   display: inline-block;
 }
@@ -942,7 +934,7 @@ export default {
   overflow: hidden;
   width: 0.2rem;
   height: 0.2rem;
-  background: url("../../assets/images/forum/postcommon/deleteIcon.png") center center no-repeat;
+  background: url("~@/assets/images/forum/postcommon/deleteIcon.png") center center no-repeat;
   background-size: contain;
 }
 .index img {
@@ -950,7 +942,6 @@ export default {
   min-width: 100%;
   height: 100px;
 }
-/* 分类选择框 */
 .exist {
   display: block;
   position: absolute;

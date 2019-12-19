@@ -208,7 +208,7 @@
           <div class="left">
             <a
               href="javascript:;"
-              onclick="easemobim.bind({configId: "2434a302-9b3f-41de-b69d-8c8ed718e1a5"})"
+              onclick="easemobim.bind({configId: '2434a302-9b3f-41de-b69d-8c8ed718e1a5'})"
             >
               <i class="serviceIcon"></i>
               <span class="serviceCon">联系客服</span>
@@ -231,7 +231,7 @@
           <div class="left">
             <a
               href="javascript:;"
-              onclick="easemobim.bind({configId: "2434a302-9b3f-41de-b69d-8c8ed718e1a5"})"
+              onclick="easemobim.bind({configId: '2434a302-9b3f-41de-b69d-8c8ed718e1a5'})"
             >
               <i class="serviceIcon"></i>
               <span class="serviceCon">联系客服</span>
@@ -246,7 +246,7 @@
           <div class="left">
             <a
               href="javascript:;"
-              onclick="easemobim.bind({configId: "2434a302-9b3f-41de-b69d-8c8ed718e1a5"})"
+              onclick="easemobim.bind({configId: '2434a302-9b3f-41de-b69d-8c8ed718e1a5'})"
             >
               <i class="serviceIcon"></i>
               <span class="serviceCon">联系客服</span>
@@ -262,13 +262,13 @@
 </template>
 
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
+import Loading from "@/components/Loading"
+import Error from "@/components/Error";
 import orderBg from "../../assets/images/SpecialOffer/offerOrder/orderBg.jpg";
 import noPay from "../../assets/images/SpecialOffer/offerOrder/noPay.png";
 import Pay from "../../assets/images/SpecialOffer/offerOrder/pay.png";
-import Config from "../../config.js";
-import Store from "../../store.js";
+import Config from "@/config/config.js";
+import Store from "@/store/store.js";
 import { Toast } from "mint-ui";
 export default {
   components: {
