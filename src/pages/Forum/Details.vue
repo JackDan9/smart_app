@@ -74,7 +74,7 @@
             v-for="(itemPic, indexPic) in barPics"
             :key="indexPic"
           >
-            <img class="index" v-bind:src="fullUrl(itemPic.picture)" alt="智慧信阳欢迎您" />
+            <img class="index" v-bind:src="fullUrl(itemPic.picture)" alt="Welcome to Smart App!" />
           </li>
         </ul>
         <div class="addLike">
@@ -151,7 +151,7 @@
                 v-for="(itemCommentPic, indexCommentPic) in itemComment.pics"
                 :key="indexCommentPic"
               >
-                <img class="index" :src="fullUrl(itemCommentPic.picture)" alt="智慧信阳欢迎您!" />
+                <img class="index" :src="fullUrl(itemCommentPic.picture)" alt="Welcome to Smart App!" />
               </li>
             </ul>
             <div v-bind:class="[itemComment.comments.length !== 0 ? 'commentOtherList' : 'dn']">
@@ -183,8 +183,8 @@
 <script>
 import Loading from "@/components/Loading";
 import Error from "@/components/Error";
-import inJoin from "~@/assets/images/forum/cdetail/inJoin.png";
-import joined from "~@/assets/images/forum/cdetail/joined.png";
+import inJoin from "@/assets/images/forum/cdetail/inJoin.png";
+import joined from "@/assets/images/forum/cdetail/joined.png";
 import Config from "@/config/config";
 import Store from "@/store/store";
 import { Toast } from "mint-ui";

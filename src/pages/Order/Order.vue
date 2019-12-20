@@ -90,7 +90,8 @@
             v-bind:class="[status2 ? 'current' : '']"
             v-if="usegold"
             name="usegold"
-            v-on:click="addChange2('usegold')">
+            v-on:click="addChange2('usegold')"
+          >
             <i class="radio"></i>
             <em>
               使用
@@ -101,7 +102,8 @@
             v-if="half_gold"
             v-bind:class="[status2 ? '' : 'current']"
             name="half_gold"
-            v-on:click="addChange2('half_gold')">
+            v-on:click="addChange2('half_gold')"
+          >
             <i class="radio"></i>
             <em>
               使用
@@ -116,7 +118,7 @@
           <span class="pp fr">-¥{{a_usegold}}</span>
         </div>
         <div class="p p4">
-          <img src="../../assets/images/consum.png" alt />
+          <img src="~@/assets/images/consum.png" alt />
           <span>{{send_gold}}</span>
         </div>
       </div>
@@ -137,17 +139,17 @@
     </div>
     <div v-bind:class="[ isActive ? rightClass : errorClass]">
       <i class="smile"></i>
-      <span class="con">感谢您为信阳公益做出的一份努力!</span>
+      <span class="con">感谢您为App公益做出的一份努力!</span>
     </div>
   </div>
 </template>
 
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config.js";
-import Store from "../../store.js";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
+import Store from "@/store/store";
 import { Toast } from "mint-ui";
 
 export default {
@@ -445,12 +447,12 @@ export default {
   display: inline-block;
 }
 .order-page .nav-top li .ord1 {
-  background: url("../../assets/images/ord1.png") center center no-repeat;
+  background: url("~@/assets/images/ord1.png") center center no-repeat;
   background-size: contain;
   vertical-align: middle;
 }
 .order-page .nav-top li .ord2 {
-  background: url("../../assets/images/ord2.png") center center no-repeat;
+  background: url("~@/assets/images/ord2.png") center center no-repeat;
   background-size: contain;
   vertical-align: middle;
 }
@@ -458,19 +460,19 @@ export default {
   width: 0.15rem;
   height: 0.15rem;
   display: inline-block;
-  background: url("../../assets/images/rad1.png") center center no-repeat;
+  background: url("~@/assets/images/rad1.png") center center no-repeat;
   background-size: contain;
   vertical-align: middle;
 }
 .order-page .nav-top li.current .rad {
-  background: url("../../assets/images/rad2.png") center center no-repeat !important;
+  background: url("~@/assets/images/rad2.png") center center no-repeat !important;
   background-size: contain !important;
   vertical-align: middle;
 }
 .order-page .addr {
   padding: 0.1rem;
   padding-right: 0.3rem;
-  background: url("../../assets/images/arr-order.png") 96% center no-repeat;
+  background: url("~@/assets/images/arr-order.png") 96% center no-repeat;
   overflow: hidden;
   background-size: 0.07rem 0.12rem;
   border-bottom: #eee 1px solid;
@@ -491,7 +493,10 @@ export default {
   border: none;
   outline: none;
   text-indent: 1em;
+  box-shadow: 0 3px 3px #eee inset;
   -webkit-box-shadow: 0 3px 3px #eee inset;
+  -moz-box-shadow: 0 3px 3px #eee inset;
+  -ms-box-shadow: 0 3px 3px #eee inset;
 }
 .order-page .goods {
   background: #ffffff;
@@ -557,7 +562,7 @@ i.chk0 {
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  background: url("../../assets/images/chk1.png") center center no-repeat;
+  background: url("~@/assets/images/chk1.png") center center no-repeat;
   background-size: contain;
 }
 i.chk1 {
@@ -566,7 +571,7 @@ i.chk1 {
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  background: url("../../assets/images/chk2.png") center center no-repeat;
+  background: url("~@/assets/images/chk2.png") center center no-repeat;
   background-size: contain;
 }
 .order-page .dis .bean span {
@@ -588,7 +593,7 @@ i.radio {
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  background: url("../../assets/images/rad1.png") center center no-repeat;
+  background: url("~@/assets/images/rad1.png") center center no-repeat;
   background-size: contain;
 }
 .order-page .dis .p3 li em {
@@ -596,7 +601,7 @@ i.radio {
   margin-left: 0.05rem;
 }
 .order-page .dis .p3 li.current .radio {
-  background: url("../../assets/images/rad2.png") center center no-repeat;
+  background: url("~@/assets/images/rad2.png") center center no-repeat;
   background-size: contain;
 }
 .order-page .dis .p4 {
@@ -672,7 +677,7 @@ i.radio {
   height: 1rem;
   margin-left: 2%;
   display: block;
-  background: url("../../assets/images/order/bg.png") center center no-repeat;
+  background: url("~@/assets/images/order/bg.png") center center no-repeat;
   background-size: contain;
 }
 .thanksNoShow {
@@ -685,8 +690,7 @@ i.radio {
   left: 11%;
   width: 0.25rem;
   height: 0.25rem;
-  background: url("../../assets/images/order/smile-white.png") center center
-    no-repeat;
+  background: url("~@/assets/images/order/smile-white.png") center center no-repeat;
   background-size: 100% 100%;
 }
 .thanksShow .con {

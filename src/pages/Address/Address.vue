@@ -42,12 +42,11 @@
 </template>
 
 <script>
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config/config.js";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
-// import Store from "../../store.js";
-import Store from "@/store.js"
+import Store from "@/store/store";
 
 export default {
   components: {
@@ -193,7 +192,7 @@ export default {
   line-height: 0.24rem;
 }
 .addr-choice .addr-list li.current {
-  background: url("../../assets/images/addr-select.png") left top no-repeat;
+  background: url("~@/assets/images/addr-select.png") left top no-repeat;
   background-size: 0.2rem 0.2rem;
 }
 .addr-choice .addr-list li .left {
@@ -219,12 +218,12 @@ export default {
 }
 .addr-choice .addr-list li .fr .dele {
   margin-left: 0.1rem;
-  background: url("../../assets/images/addr-delet.png") center center no-repeat;
+  background: url("~@/assets/images/addr-delet.png") center center no-repeat;
   background-size: 0.18rem 0.18rem;
 }
 .addr-choice .addr-list li .fr .edit {
   margin-right: 0.1rem;
-  background: url("../../assets/images/op-edit.png") center center no-repeat;
+  background: url("~@/assets/images/op-edit.png") center center no-repeat;
   background-size: 0.18rem 0.18rem;
 }
 </style>

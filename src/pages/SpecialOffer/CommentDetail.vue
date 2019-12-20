@@ -15,7 +15,7 @@
                 <div class="img">
                   <img
                     v-bind:src="[this.mostPicture ? fullUrl(this.mostPicture) : defaultPicUrl() ]"
-                    alt="智慧信阳"
+                    alt="Smart App"
                     class="personIconImg"
                   />
                 </div>
@@ -46,7 +46,7 @@
               <div class="img">
                 <img
                   v-bind:src="[item.picture ? fullUrl(item.picture) : defaultPicUrl()]"
-                  alt="智慧信阳"
+                  alt="Smart App"
                   class="personIconImg"
                 />
               </div>
@@ -367,7 +367,7 @@ export default {
 }
 .username {
   display: inline-block;
-  float: right;
+  /* float: right; */
   overflow: hidden;
   width: 72%;
   line-height: 0.5rem;
@@ -377,7 +377,7 @@ export default {
 .commentMost .index .right {
   display: inline-block;
   overflow: hidden;
-  float: right;
+  /* float: right; */
   height: 0.5rem;
   line-height: 0.5rem;
   font-size: 0;
@@ -407,7 +407,7 @@ export default {
 }
 .likedInfo .likedNum {
   display: inline-block;
-  float: right;
+  /* float: right; */
   font-size: 0.15rem;
   margin-left: 0.1rem;
 }
@@ -439,8 +439,7 @@ export default {
   width: 0.2rem;
   height: 0.2rem;
   border-radius: 0.2rem;
-  background: url("~@/assets/images/user/icon-male.png") center center
-    no-repeat;
+  background: url("~@/assets/images/user/icon-male.png") center center no-repeat;
   background-size: 0.1rem, 0.1rem;
   background-color: #28b4aa;
 }
@@ -459,7 +458,7 @@ export default {
 }
 .username {
   display: inline-block;
-  float: right;
+  /* float: right; */
   overflow: hidden;
   width: 72%;
   line-height: 0.5rem;
@@ -469,7 +468,7 @@ export default {
 .commentList .index .right {
   display: inline-block;
   overflow: hidden;
-  float: right;
+  /* float: right; */
   height: 0.5rem;
   line-height: 0.5rem;
   font-size: 0;
@@ -489,7 +488,7 @@ export default {
 .commentFooter .left {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 45%;
   height: 0.5rem;
   line-height: 0.5rem;
@@ -500,12 +499,11 @@ export default {
 .serviceIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 35%;
   height: 0.2rem;
   margin-top: 0.12rem;
-  background: url("~@/assets/images/SpecialOffer/productDetail/customerService.png")
-    right no-repeat;
+  background: url("~@/assets/images/SpecialOffer/productDetail/customerService.png") right no-repeat;
   background-size: contain;
 }
 .serviceCon {

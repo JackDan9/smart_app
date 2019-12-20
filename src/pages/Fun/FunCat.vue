@@ -12,8 +12,8 @@
       infinite-scroll-disabled="isLoading"
       infinite-scroll-distance="10"
     >
-      <template v-for="fun_data in funs">
-        <div class="fun-box">
+      <template v-for="(fun_data, index) in funs">
+        <div class="fun-box" :key="index">
           <a v-on:click="funClick(fun_data.id)">
             <div class="pic">
               <img
@@ -37,10 +37,10 @@
   </div>
 </template>
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config.js";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
 
 export default {
   components: {

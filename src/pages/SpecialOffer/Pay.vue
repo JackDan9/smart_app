@@ -32,7 +32,7 @@
           </li>
           <li class="dn">
             <div class="logo">
-              <img src="../assets/images/alipay.png" class="w101" />
+              <img src="~@/assets/images/alipay.png" class="w101" />
             </div>
             <div class="name">支付宝支付</div>
             <div

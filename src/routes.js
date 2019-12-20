@@ -45,60 +45,90 @@ import QqSend from './pages/Forum/QqSend.vue'
 import Reply from './pages/Forum/Reply.vue'
 import StartDate from './pages/Forum/StartDate.vue'
 import WeChatSend from './pages/Forum/WechatSend.vue'
-
-import NotFound from './pages/NotFound.vue'
-import FunList from './pages/Fun/FunList.vue'
-import FunCat from './pages/Fun/FunCat.vue'
-import Fun from './pages/Fun/Fun.vue'
-import Service from './pages/Service.vue'
-import Thing from './pages/Thing.vue'
-import Category from './pages/Category.vue'
-import New from './pages/News/New.vue'
-import NewList from './pages/News/NewList.vue'
-import Convenient from './pages/Convenient.vue'
-import Government from './pages/Goverment/Government.vue'
-import Ask from './pages/Goverment/Ask.vue'
-import AskList from './pages/Goverment/AskList.vue'
-import AskDetail from './pages/Goverment/AskDetail.vue'
-import Nearby from './pages/Nearby/Nearby.vue'
-import Discount from './pages/Discount.vue'
-import Trade from './pages/Trade.vue'
-import User from './pages/User.vue'
-import Mail from './pages/Mail.vue'
-import Feedback from './pages/Feedback.vue'
-import Userset from './pages/Userset.vue'
-import Myset from './pages/Myset.vue'
-import Gold from './pages/Gold.vue'
-import Signature from './pages/Signature.vue'
-import Nick from './pages/Nick.vue'
-import Pic from './pages/Pic.vue'
-import Search from './pages/Search.vue'
-import Comment from './pages/News/Comment.vue'
-import Product from './pages/SpecialOffer/Product.vue'
-import Company from './pages/Company.vue'
-import Collect from './pages/Collect.vue'
-import Message from './pages/Message.vue'
-import MsgSet from './pages/MsgSet.vue'
-import Order from './pages/Order/Order.vue'
-import OrderList from './pages/Order/OrderList.vue'
-import OrderDetail from './pages/Order/OrderDetail.vue'
-import Pay from './pages/Pay.vue'
-import Explain from './pages/Explain.vue'
+/**
+ * Fun Route
+ */
 import Ccomment from './pages/Fun/Ccomment.vue'
-import Notice from './pages/Notice.vue'
-import Tel from './pages/Tel.vue'
-import Success from './pages/Success.vue'
-import Wjs from './pages/Wjs.vue'
+import Fun from './pages/Fun/Fun.vue'
+import FunCat from './pages/Fun/FunCat.vue'
+import FunList from './pages/Fun/FunList.vue'
+/**
+ * Goverment Route
+ */
 import Answer from './pages/Goverment/Answer.vue'
-import SendComment from './pages/News/SendComment.vue'
-import ProductList from './pages/SpecialOffer/ProductList.vue'
-import ProductDetail from './pages/SpecialOffer/ProductDetail.vue'
-import CommentDetail from './pages/SpecialOffer/CommentDetail.vue'
-import OfferOrder from './pages/SpecialOffer/OfferOrder.vue'
+import Ask from './pages/Goverment/Ask.vue'
+import AskDetail from './pages/Goverment/AskDetail.vue'
+import AskList from './pages/Goverment/AskList.vue'
+import Explain from './pages/Goverment/Explain.vue'
+import Government from './pages/Goverment/Government.vue'
+/**
+ * Login Route
+ */
 import BeforeLogin from './pages/Login/BeforeLogin.vue'
 import FastLogin from './pages/Login/FastLogin.vue'
 import LoginVerify from './pages/Login/LoginVerify.vue'
 import RegisterProtocol from './pages/Login/RegisterProtocol.vue'
+/**
+ * Nearby Route
+ */
+import Nearby from './pages/Nearby/Nearby.vue'
+/**
+ * News Route
+ */
+import Comment from './pages/News/Comment.vue'
+import New from './pages/News/New.vue'
+import NewList from './pages/News/NewList.vue'
+import SendComment from './pages/News/SendComment.vue'
+/**
+ * Order Route
+ */
+import Order from './pages/Order/Order.vue'
+import OrderDetail from './pages/Order/OrderDetail.vue'
+import OrderList from './pages/Order/OrderList.vue'
+/**
+ * Product Route
+ */
+import Discount from './pages/Product/Discount.vue'
+import Message from './pages/Product/Message.vue'
+import Notice from './pages/Product/Notice.vue'
+import Service from './pages/Product/Service.vue'
+import Trade from './pages/Product/Trade.vue'
+import NotFound from './components/NotFound.vue'
+/**
+ * SpecialOffer Route
+ */
+import Category from './pages/SpecialOffer/Category.vue'
+import Collect from './pages/SpecialOffer/Collect.vue'
+import CommentDetail from './pages/SpecialOffer/CommentDetail.vue'
+import Company from './pages/SpecialOffer/Company.vue'
+import Convenient from './pages/SpecialOffer/Convenient.vue'
+import OfferOrder from './pages/SpecialOffer/OfferOrder.vue'
+import Pay from './pages/SpecialOffer/Pay.vue'
+import Product from './pages/SpecialOffer/Product.vue'
+import ProductDetail from './pages/SpecialOffer/ProductDetail.vue'
+import ProductList from './pages/SpecialOffer/ProductList.vue'
+import Start from './pages/SpecialOffer/Start.vue'
+import Success from './pages/SpecialOffer/Success.vue'
+import Thing from './pages/SpecialOffer/Thing.vue'
+/**
+ * User Route
+ */
+import Feedback from './pages/User/Feedback.vue'
+import Gold from './pages/User/Gold.vue'
+import Mail from './pages/User/Mail.vue'
+import Myset from './pages/User/Myset.vue'
+import MsgSet from './pages/User/MsgSet.vue' 
+import Nick from './pages/User/Nick.vue'
+import Pic from './pages/User/Pic.vue'
+import Search from './pages/User/Search.vue'
+import Signature from './pages/User/Signature.vue'
+import Tel from './pages/User/Tel.vue'
+import User from './pages/User/User.vue'
+import Userset from './pages/User/Userset.vue'    
+/**
+ * Components Route
+ */
+import Wjs from './components/Wjs.vue'
 
 const routes = [
     {path: '/',component: App, name: "主页"},
@@ -181,6 +211,7 @@ const routes = [
     {path: '/actlabel/:id', component: ActLabel, name: "活动标签"},
     {path: '/qq/:id', component: QqSend, name: "QQ信息"},
     {path: '/wechat/:id', component: WeChatSend, name: "微信信息"},
+    {path: '/start', component: Start, name: "WIFI"},
 ];
 
 export default routes

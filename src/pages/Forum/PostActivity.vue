@@ -19,7 +19,7 @@
           <ul class="activityPicList">
             <li class="index" v-for="(item, index) in postPicture" :key="index">
               <i class="deleteIcon" v-on:click="deletePic(index)"></i>
-              <img id="picture_sourceimg" :src="fullUrl(item.picture)" alt="智慧信阳欢迎您!" />
+              <img id="picture_sourceimg" :src="fullUrl(item.picture)" alt="Welcome to Smart App!" />
             </li>
           </ul>
           <input
@@ -68,7 +68,7 @@
           <span>活动地点</span>
         </p>
         <p class="right">
-          <span>{{address || '请输入信阳市内地点!'}}</span>
+          <span>{{address || '请输入App内地点!'}}</span>
           <i class="goIcon"></i>
         </p>
       </div>
@@ -500,7 +500,7 @@ export default {
   display: inline-block;
   width: 0.2rem;
   height: 0.2rem;
-  background: url("../../assets/images/forum/community/icon-back.png") center center no-repeat;
+  background: url("~@/assets/images/forum/community/icon-back.png") center center no-repeat;
   background-size: contain;
   margin-top: 0.14rem;
   margin-left: 0.05rem;

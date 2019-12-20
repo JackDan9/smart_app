@@ -6,10 +6,10 @@
   </div>
 </template>
 <script>
-import Config from "../../config.js";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
-import Store from "../../store.js";
-import Tab from "../../components/Tab.vue";
+import Store from "@/store/store";
+import Tab from "@/components/Tab";
 export default {
   components: {
     Tab
@@ -27,7 +27,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: url("../../assets/images/cooperateBg/cooperateHome.jpg") center
+  background: url("~@/assets/images/cooperateBg/cooperateHome.jpg") center
     center no-repeat;
   background-size: 100% 100%;
 }

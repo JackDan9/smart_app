@@ -167,14 +167,14 @@ li {
 }
 img {
   overflow: hidden;
-  width: 150px;
-  height: 150px;
+  /* width: 150px; */
+  /* height: 150px; */
   border-radius: 150px;
   border: 1px solid #284baa;
   margin: auto;
-  float: left;
+  /* float: left; */
   display: inline;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 .weui_uploader_input_wrp {
   float: right;

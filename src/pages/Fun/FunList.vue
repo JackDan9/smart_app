@@ -11,8 +11,8 @@
     </div>
     <div class="banner">
       <mt-swipe :auto="4000" class="swipe" v-if="ads">
-        <template v-for="ad in ads">
-          <mt-swipe-item class="swipe-item">
+        <template v-for="(ad, index) in ads">
+          <mt-swipe-item class="swipe-item" :key="index">
             <a v-on:click="changeClick(ad['id'],ad['url'])">
               <img v-if="ad['picture']" :src="fullUrl(ad['picture'])+'!640.301'" />
             </a>
@@ -22,7 +22,7 @@
     </div>
     <div class="classify-box">
       <ul>
-        <li v-for="type in types" v-if="isClass">
+        <li v-for="(type, index) in types" v-show="isClass" :key="index">
           <router-link :to="{ path:'/funcat/'+type.key}">{{type['name']}}</router-link>
         </li>
       </ul>
@@ -32,8 +32,8 @@
       infinite-scroll-disabled="isLoading"
       infinite-scroll-distance="10"
     >
-      <template v-for="fun_data in funs" v-if="isClass">
-        <div class="fun-box">
+      <template v-for="(fun_data, index) in funs" v-show="isClass">
+        <div class="fun-box" :key="index"> 
           <a v-on:click="funClick(fun_data.id)">
             <div class="pic">
               <img
@@ -53,8 +53,8 @@
           </div>
         </div>
       </template>
-      <template v-for="thing in things" v-if="!isClass">
-        <div class="goods-box">
+      <template v-for="(thing, index) in things" v-show="!isClass">
+        <div class="goods-box" :key="index">
           <div class="pic">
             <a v-on:click="thingClick(thing.id)">
               <img v-if="thing['picture']" :src="fullUrl(thing['picture'])+'!640.398'" class="w100" />
@@ -77,11 +77,11 @@
   </div>
 </template>
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config.js";
-import Store from "../../store.js";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
+import Store from "@/store/store";
 
 export default {
   components: {
@@ -175,10 +175,10 @@ export default {
       this.$router.push("/");
     },
     funClick: function(id) {
-      window.location.href = "#/fun/" + id;
+      window.location.href = "/fun/" + id;
     },
     thingClick: function(id) {
-      window.location.href = "#/thing/" + id;
+      window.location.href = "/thing/" + id;
     },
     changeClick: function(id, url) {
       this.$http.post(this.adUrl, { id: id }).then(response => {

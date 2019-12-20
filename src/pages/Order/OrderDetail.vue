@@ -34,7 +34,7 @@
                   <img
                     v-bind:class="[type == 3 ? '' : 'dn']"
                     v-bind:src="fullUrl(showProducts.picture) + '!640.398'"
-                    alt="智慧信阳欢迎您!"
+                    alt="Welcome to Smart App!"
                   />
                 </div>
                 <div class="right">
@@ -104,7 +104,7 @@
                   <img
                     v-bind:class="[type == 3 ? '' : 'dn']"
                     v-bind:src="fullUrl(showProducts.picture) + '!640.398'"
-                    alt="智慧信阳欢迎您!"
+                    alt="Welcome to Smart App!"
                   />
                 </div>
                 <div class="right">
@@ -262,11 +262,11 @@
 </template>
 
 <script>
-import Loading from "@/components/Loading"
+import Loading from "@/components/Loading";
 import Error from "@/components/Error";
-import orderBg from "../../assets/images/SpecialOffer/offerOrder/orderBg.jpg";
-import noPay from "../../assets/images/SpecialOffer/offerOrder/noPay.png";
-import Pay from "../../assets/images/SpecialOffer/offerOrder/pay.png";
+import orderBg from "@/assets/images/SpecialOffer/offerOrder/orderBg.jpg";
+import noPay from "@/assets/images/SpecialOffer/offerOrder/noPay.png";
+import Pay from "@/assets/images/SpecialOffer/offerOrder/pay.png";
 import Config from "@/config/config.js";
 import Store from "@/store/store.js";
 import { Toast } from "mint-ui";
@@ -502,7 +502,7 @@ export default {
 .orderProInfoList .left {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 37%;
   height: 1.2rem;
   line-height: 0.8rem;
@@ -532,7 +532,7 @@ export default {
 .productTitle .productCon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 80%;
   height: 0.22rem;
   line-height: 0.22rem;
@@ -664,14 +664,14 @@ export default {
 .addressInfo .addressTitle {
   display: inline-block;
   width: 22%;
-  float: left;
+  /* float: left; */
   overflow: hidden;
   font-size: 0.16rem;
 }
 .addressInfo .addressCon {
   display: inline-block;
   width: 60%;
-  float: right;
+  /* float: right; */
   overflow: hidden;
   color: #636363;
   font-size: 0.16rem;
@@ -684,14 +684,14 @@ export default {
 .noteInfo .noteTitle {
   display: inline-block;
   width: 22%;
-  float: left;
+  /* float: left; */
   overflow: hidden;
   font-size: 0.16rem;
 }
 .noteInfo .noteCon {
   display: inline-block;
   width: 78%;
-  float: right;
+  /* float: right; */
   overflow: hidden;
   color: #636363;
   font-size: 0.16rem;
@@ -713,7 +713,7 @@ export default {
 .del-btn .left {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 42%;
   height: 0.5rem;
   line-height: 0.5rem;
@@ -724,12 +724,11 @@ export default {
 .serviceIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 25%;
   height: 0.2rem;
   margin-top: 0.12rem;
-  background: url("../../assets/images/SpecialOffer/productDetail/customerService.png")
-    right no-repeat;
+  background: url("~@/assets/images/SpecialOffer/productDetail/customerService.png") right no-repeat;
   background-size: contain;
 }
 .serviceCon {

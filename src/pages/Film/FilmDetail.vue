@@ -23,7 +23,7 @@
             <div class="p2 p">导演:{{video['director']}}</div>
             <div class="play p" v-on:click="changeClick(url,video.title)">
               <a v-bind:href="url">
-                <img src="../../assets/images/play.png" class="w100" alt="智慧信阳欢迎您!" />
+                <img src="~@/assets/images/play.png" class="w100" alt="Welcome to Smart App!" />
               </a>
             </div>
           </div>
@@ -36,16 +36,16 @@
           <p>{{video['description']}}</p>
         </div>
         <div class="choice" v-bind:class="[isClass ? '' : 'dn']">
-          <template v-for="sub_data in sub_list">
-            <a v-on:click="changeClick(sub_data.url,video.title)">{{sub_data['sort']}}</a>
+          <template v-for="(sub_data, index) in sub_list">
+            <a v-on:click="changeClick(sub_data.url,video.title)" :key="index">{{sub_data['sort']}}</a>
           </template>
         </div>
         <div class="love">
           <div class="t">猜你喜欢</div>
           <div class="swiper-container">
             <div class="swiper-wrapper w100">
-              <template v-for="like_data in like_list">
-                <div class="swiper-slide">
+              <template v-for="(like_data, index) in like_list">
+                <div class="swiper-slide" :key="index">
                   <router-link :to="{ path: '/filmdetail/'+like_data.id}">
                     <img :src="fullUrl(like_data['picture'])+'!182.263'" class="w100" />
                     <p>{{like_data['title']}}</p>
@@ -61,10 +61,10 @@
 </template>
 
 <script>
-import Error from "../../components/Error.vue";
-import Config from "../../config.js";
+import Error from "@/components/Error";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
-import Store from "../../store.js";
+import Store from "@/store/store";
 
 export default {
   components: {
@@ -235,7 +235,7 @@ export default {
 }
 .film-detail .choice a {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.5rem;
   height: 0.3rem;
   border: #9d9d9d 1px solid;

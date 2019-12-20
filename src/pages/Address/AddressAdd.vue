@@ -85,11 +85,11 @@
   </div>
 </template>
 <script>
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config/config.js";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
-import Store from "../../store.js";
+import Store from "@/store/store";
 
 export default {
   components: {

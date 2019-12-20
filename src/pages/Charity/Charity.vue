@@ -47,9 +47,11 @@
                 <span>最新善款去向</span>
               </div>
               <div class="text">
-                <template v-for="charity_data in charity['pics']">
-                  <p v-if="charity_data['content']">{{charity_data['content']}}</p>
-                  <p>
+                <template v-for="(charity_data, index) in charity['pics']">
+                  <p v-if="charity_data['content']" :key="index">
+                    {{charity_data['content']}}
+                  </p>
+                  <p :key="index">
                     <img
                       v-if="charity_data['pic']"
                       :src="fullUrl(charity_data['pic'])+'!640.398'"
@@ -62,8 +64,8 @@
           </div>
           <div v-bind:class="[charity['isClass'] ? 'con con2 dn' : 'con con2']">
             <ul>
-              <template v-for="comment_data in comment_list">
-                <li>
+              <template v-for="(comment_data, index) in comment_list">
+                <li :key="index">
                   <div class="img">
                     <img
                       v-bind:src="[comment_data['u_picture']?fullUrl(comment_data['u_picture'])+'!70.70':defaultPicUrl()]"
@@ -106,13 +108,13 @@
 </template>
 
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config.js";
-import Store from "../../store.js";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
+import Store from "@/store/store";
 import { Toast } from "mint-ui";
-import WxShare from "../../wx.js";
+import WxShare from "@/utils/wx/wx.js";
 export default {
   components: {
     Error
@@ -453,7 +455,7 @@ page-main {
 .fixed-bot .suc-vote-btn span {
   padding-left: 0.3rem;
   display: inline-block;
-  background: url("../../assets/images/vote-btn.png") left center no-repeat;
+  background: url("~@/assets/images/vote-btn.png") left center no-repeat;
   background-size: 0.26rem 0.2rem;
   color: #ffffff;
   font-size: 0.16rem;
@@ -472,7 +474,7 @@ page-main {
 .fixed-bot .vote-btn span {
   padding-left: 0.3rem;
   display: inline-block;
-  background: url("../../assets/images/vote-btn.png") left center no-repeat;
+  background: url("~@/assets/images/vote-btn.png") left center no-repeat;
   background-size: 0.26rem 0.2rem;
   color: #ffffff;
   font-size: 0.16rem;

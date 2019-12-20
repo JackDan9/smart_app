@@ -20,7 +20,7 @@
         <ul class="commonPicList">
           <li class="index" v-for="(itemComment, indexComment) in commentPics" :key="indexComment">
             <i class="deleteIcon" v-on:click="deletePic(indexComment)"></i>
-            <img id="picture_sourceimg" v-bind:src="fullUrl(itemComment.picture)" alt="智慧信阳欢迎您!" />
+            <img id="picture_sourceimg" v-bind:src="fullUrl(itemComment.picture)" alt="Welcome to Smart App!" />
           </li>
         </ul>
         <input

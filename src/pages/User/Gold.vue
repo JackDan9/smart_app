@@ -7,7 +7,7 @@
     <div class="goldPage">
       <div class="notice">
         <span class="cell_left">鲸豆:</span>
-        <span class="cell_right">智慧信阳虚拟货币</span>
+        <span class="cell_right">Smart App虚拟货币</span>
       </div>
       <div class="notice">
         <div class="txt">得到方法:</div>

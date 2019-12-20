@@ -13,10 +13,10 @@
     </div>
     <div class="banner pt45" v-infinite-scroll="loadMore">
       <mt-swipe :auto="3000" class="swipe" v-if="ads">
-        <template v-for="ad in ads">
-          <mt-swipe-item class="swipe-item">
+        <template v-for="(ad, index) in ads">
+          <mt-swipe-item class="swipe-item" :key="index">
             <a v-on:click="changeClick(ad['id'],ad['url'])">
-              <img v-if="ad['picture']" :src="fullUrl(ad['picture'])+'!640.301'" alt="智慧信阳欢迎您!" />
+              <img v-if="ad['picture']" :src="fullUrl(ad['picture'])+'!640.301'" alt="Welcome to Smart App!" />
             </a>
           </mt-swipe-item>
         </template>
@@ -205,7 +205,7 @@
         </div>
       </router-link>
       <div class="text-tips">
-        <router-link :to="{ path: '/explain/'}">#平台郑重承诺：每次消费使用鲸豆的10%将直达公益项目，共建美好信阳</router-link>
+        <router-link :to="{ path: '/explain/'}">#平台郑重承诺：每次消费使用鲸豆的10%将直达公益项目，共建美好App</router-link>
       </div>
       <div class="welfare-list2">
         <ul>
@@ -217,7 +217,7 @@
                     v-if="charity['picture']"
                     :src="fullUrl(charity['picture'])+'!640.340'"
                     class="w100"
-                    alt="智慧信阳app欢迎您!"
+                    alt="Smart App欢迎您!"
                   />
                   <div class="operation">
                     <div class="btn"></div>
@@ -380,7 +380,6 @@ export default {
 </script>
 
 <style scoped>
-/* 导航栏 */
 .company-top-nav {
   z-index: 123456;
   position: fixed;

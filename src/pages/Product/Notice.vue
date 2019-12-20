@@ -31,8 +31,8 @@
 <script>
 import Error from "@/components/Error";
 import Tab from "@/components/Tab";
-import Config from "@/config/config.js";
-import Store from "@/store/store.js";
+import Config from "@/config/config";
+import Store from "@/store/store";
 import { Toast } from "mint-ui";
 
 export default {

@@ -58,7 +58,7 @@
                 v-for="(itemPic, indexPic) in item.pics"
                 :key="indexPic"
               >
-                <img class="index" v-bind:src="fullUrl(itemPic.picture)" alt="智慧信阳欢迎您!" />
+                <img class="index" v-bind:src="fullUrl(itemPic.picture)" alt="Welcome to Smart App!" />
               </li>
             </ul>
             <div class="bottom">
@@ -89,12 +89,12 @@
 import Config from "@/config/config.js";
 import Store from "@/store/store.js";
 import { Toast } from "mint-ui";
-import gamePic from "~@/assets/images/forum/community/modules/game.jpg";
-import foodPic from "~@/assets/images/forum/community/modules/food.jpg";
-import outDoorPic from "~@/assets/images/forum/community/modules/outdoor.jpg";
-import brokeNewsPic from "~@/assets/images/forum/community/modules/brokenews.jpg";
-import photoPic from "~@/assets/images/forum/community/modules/photo.jpg";
-import chatPic from "~@/assets/images/forum/community/modules/chat.jpg";
+import gamePic from "@/assets/images/forum/community/modules/game.jpg";
+import foodPic from "@/assets/images/forum/community/modules/food.jpg";
+import outDoorPic from "@/assets/images/forum/community/modules/outdoor.jpg";
+import brokeNewsPic from "@/assets/images/forum/community/modules/brokenews.jpg";
+import photoPic from "@/assets/images/forum/community/modules/photo.jpg";
+import chatPic from "@/assets/images/forum/community/modules/chat.jpg";
 export default {
   data() {
     return {
@@ -273,7 +273,7 @@ export default {
   height: 0.4rem;
   border-radius: 0.4rem;
   margin-top: 0.05rem;
-  background: url("../../assets/images/forum/community/stick/icon-sec.png") center center no-repeat;
+  background: url("~@/assets/images/forum/community/stick/icon-sec.png") center center no-repeat;
   background-size: contain;
 }
 .iconOffAct {

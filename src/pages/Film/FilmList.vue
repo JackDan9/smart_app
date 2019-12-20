@@ -13,8 +13,8 @@
     >
       <div class="navsize"></div>
       <div class="list">
-        <template v-for="video_data in video_list">
-          <div class="box">
+        <template v-for="(video_data, index) in video_list">
+          <div class="box" :key="index">
             <router-link :to="{ path: '/filmdetail/'+video_data.id}">
               <img :src="fullUrl(video_data['picture'])+'!182.263'" />
               <p>{{video_data['title']}}</p>
@@ -28,10 +28,10 @@
 </template>
 
 <script>
-import Error from "../../components/Error.vue";
-import Config from "../../config.js";
+import Error from "@/components/Error";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
-import Store from "../../store.js";
+import Store from "@/store/store";
 
 export default {
   components: {

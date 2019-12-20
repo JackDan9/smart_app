@@ -12,7 +12,7 @@
           id="contents"
           cols="30"
           rows="12"
-          placeholder="您的只言片语,[智慧信阳]随时聆听,因您而美好!~我们会及时给您回复。"
+          placeholder="您的只言片语,[Smart App]随时聆听,因您而美好!~我们会及时给您回复。"
           ref="contents">
         </textarea>
       </div>

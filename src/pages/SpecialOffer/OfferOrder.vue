@@ -45,7 +45,7 @@
       <div class="productInfo">
         <div class="left">
           <div class="productImg">
-            <img src="http://img9.leejiaju.com/pic/20170103/charity/1483423590ubFaX.jpg" alt="智慧信阳" />
+            <img src="http://img9.leejiaju.com/pic/20170103/charity/1483423590ubFaX.jpg" alt="Smart App" />
           </div>
           <span class="productTitle">{{product.name}}</span>
         </div>
@@ -135,7 +135,7 @@
           <span class="pp fr">-¥{{a_usegold}}</span>
         </div>
         <div class="p p4">
-          <img src="../../assets/images/consum.png" alt />
+          <img src="~@/assets/images/consum.png" alt />
           <span>{{send_gold}}</span>
         </div>
       </div>
@@ -155,7 +155,7 @@
     </div>
     <div v-bind:class="[isActive ? rightClass : errorClass]">
       <i class="smile"></i>
-      <span class="con">感谢您为信阳公益做出的一份努力!</span>
+      <span class="con">感谢您为App公益做出的一份努力!</span>
     </div>
   </div>
 </template>

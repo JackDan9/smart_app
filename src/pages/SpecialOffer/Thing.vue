@@ -273,7 +273,7 @@ export default {
   color: #9c9c9c;
 }
 .page-fun-detail .info .bot i {
-  float: right;
+  /* float: right; */
   display: inline-block;
   width: 0.3rem;
   height: 0.3rem;
@@ -353,7 +353,7 @@ export default {
 .fixed-go .fr .wantIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 47%;
   color: #ffffff;
   font-size: 0.2rem;

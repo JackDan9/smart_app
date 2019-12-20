@@ -1,61 +1,103 @@
 <template>
-    <div>
-        <div class="navTop">
-            <i class="backIcon" v-on:click="goBack()"></i>
-            <span class="sendStartDate">开始日期</span>
-            <i class="sendIcon" v-on:click="sendStartDay()">发送</i>
-        </div>
-        <div class="comment">
-            <textarea type="text" placeholder="日期格式如：(周日 7/23 22:00)" name="text"
-                ref="startDate"
-                value=""
-                id="startDate"></textarea>
-        </div>
+  <div>
+    <div class="navTop">
+      <i class="backIcon" v-on:click="goBack()"></i>
+      <span class="sendStartDate">开始日期</span>
+      <i class="sendIcon" v-on:click="sendStartDay()">发送</i>
     </div>
+    <div class="comment">
+      <textarea></textarea>
+    </div>
+  </div>
 </template>
 <script>
-    import Config from '../../config.js'
-    import Store from '../../store.js'
-    import {Toast} from 'mint-ui'
+import Config from "@/config/config";
+import Store from "@/store/store";
+import { Toast } from "mint-ui";
 
-    export default {
-        data() {
-            return {
-                updateBarUrl: 'bar/update/',
-            }
-        },
-        methods: {
-            goBack: function() {
-                let id = this.$route.params.id
-                this.$router.push('/postactivity/' + id)
-            },
-            sendStartDay: function() {
-                let startDate = this.$refs.startDate.value
-                let id = this.$route.params.id
-                this.updateStartDate(id, startDate)
-            },
-            updateStartDate(id, startDate) {
-                this.$http.post(this.updateBarUrl, {id: id, starttime: startDate}).then((response) => {
-                    const ret = JSON.parse(response.data || "[]")
-                    if(ret && ret.code === 0) {
-                        Toast('起始日期填写成功!')
-                        this.$router.push('/postactivity/' + ret.id)
-                    } else {
-                        Toast(ret.msg)
-                        return
-                    }
-                })
-            },
+export default {
+  data() {
+    return {
+      updateBarUrl: "bar/update/"
+    };
+  },
+  methods: {
+    goBack: function() {
+      let id = this.$route.params.id;
+      this.$router.push("/postactivity/" + id);
+    },
+    sendStartDay: function() {
+      let startDate = this.$refs.startDate.value;
+      let id = this.$route.params.id;
+      this.updateStartDate(id, startDate);
+    },
+    updateStartDate(id, startDate) {
+      this.$http
+        .post(this.updateBarUrl, { id: id, starttime: startDate })
+        .then(response => {
+          const ret = JSON.parse(response.data || "[]");
+          if (ret && ret.code === 0) {
+            Toast("起始日期填写成功!");
+            this.$router.push("/postactivity/" + ret.id);
+          } else {
+            Toast(ret.msg);
+            return;
+          }
         }
+      );
     }
+  }
+};
 </script>
 <style scoped>
 /* 评论框头部 */
-.navTop { width: 100%; height: 0.5rem; line-height: 0.5rem; background: #000; }
-.navTop .backIcon { display: inline-block; float: left; width: 0.2rem; height: 0.2rem; margin-top: 0.14rem; margin-left: 0.1rem;  background: url('../../assets/images/back-white.png') center center no-repeat; background-size: contain; }
-.navTop .sendStartDate { display: inline-block; width: 70%; text-align: center; font-size: 0.18rem; color: #fff; }
-.navTop .sendIcon { display: inline-block; float: right; width: 0.45rem; height: 0.25rem; margin-right: 0.09rem; margin-top: 0.13rem; border: 1px solid #C0C0C0; border-radius: 5px; font-style: normal; color: #fff; text-align: center; line-height: 0.26rem ; }
+.navTop {
+  width: 100%;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  background: #000;
+}
+.navTop .backIcon {
+  display: inline-block;
+  /* float: left; */
+  width: 0.2rem;
+  height: 0.2rem;
+  margin-top: 0.14rem;
+  margin-left: 0.1rem;
+  background: url("~@/assets/images/back-white.png") center center no-repeat;
+  background-size: contain;
+}
+.navTop .sendStartDate {
+  display: inline-block;
+  width: 70%;
+  text-align: center;
+  font-size: 0.18rem;
+  color: #fff;
+}
+.navTop .sendIcon {
+  display: inline-block;
+  /* float: right; */
+  width: 0.45rem;
+  height: 0.25rem;
+  margin-right: 0.09rem;
+  margin-top: 0.13rem;
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+  font-style: normal;
+  color: #fff;
+  text-align: center;
+  line-height: 0.26rem;
+}
 /* 评论框 */
-.comment { width: 100%; padding-top: 0.5rem; }
-.comment textarea { border: none; outline: none; width: 90%; padding: 5%; height: 1rem; }
+.comment {
+  width: 100%;
+  padding-top: 0.5rem;
+}
+.comment textarea {
+  border: none;
+  outline: none;
+  width: 90%;
+  padding: 5%;
+  height: 1rem;
+}
 </style>

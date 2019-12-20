@@ -93,8 +93,7 @@
   </div>
 </template>
 <script>
-import { Toast } from "mint-ui";
-import { MessageBox } from "mint-ui";
+import { Toast, MessageBox } from "mint-ui";
 import Config from "@/config/config";
 import Store from "@/store/store";
 export default {

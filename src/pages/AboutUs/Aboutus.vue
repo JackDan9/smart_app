@@ -65,7 +65,7 @@ export default {
     height: 100%;
     top: 0;
     bottom: 0;
-    background: url("../../assets/images/about/aboutBg.jpg") center center no-repeat;
+    background: url("~@/assets/images/about/aboutBg.jpg") center center no-repeat;
     background-size: 100% 102%;
     overflow: hidden;
   }
@@ -111,7 +111,7 @@ export default {
     display: inline-block;
     width: 0.8rem;
     height: 0.05rem;
-    background: url("../../assets/images/about/aboutRect.jpg") center center
+    background: url("~@/assets/images/about/aboutRect.jpg") center center
       no-repeat;
     background-size: 100% 100%;
   }
@@ -119,7 +119,7 @@ export default {
     display: inline-block;
     width: 1.79rem;
     height: 0.266rem;
-    background: url("../../assets/images/about/aboutUs.png") center center no-repeat;
+    background: url("~@/assets/images/about/aboutUs.png") center center no-repeat;
     background-size: 70% 70%;
   }
   .tips .tips_content {
@@ -154,7 +154,7 @@ export default {
     width: 0.6rem;
     height: 0.6rem;
     display: inline-block;
-    background: url("../../assets/images/about/aboutLogo.png") center center no-repeat;
+    background: url("~@/assets/images/about/aboutLogo.png") center center no-repeat;
     background-size: 100% 100%;
   }
   .ask .tips2 {

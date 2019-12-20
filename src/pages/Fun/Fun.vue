@@ -34,9 +34,9 @@
       <div class="art-con">
         <div class="title">{{fun['companyName']}}</div>
         <div class="con">
-          <template v-for="fun_data in fun['pics']">
-            <p v-if="fun_data['content']">{{fun_data['content']}}</p>
-            <p>
+          <template v-for="(fun_data, index) in fun['pics']">
+            <p v-if="fun_data['content']" :key="index">{{fun_data['content']}}</p>
+            <p :key="index">
               <img v-if="fun_data['pic']" :src="fullUrl(fun_data['pic'])+'!640.398'" alt />
             </p>
           </template>
@@ -62,12 +62,12 @@
   </div>
 </template>
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config.js";
-import Store from "../../store.js";
-import WxShare from "../../wx.js";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
+import Store from "@/store/store";
+import WxShare from "@/utils/wx/wx";
 export default {
   components: {
     Error
@@ -277,7 +277,7 @@ export default {
   color: #9c9c9c;
 }
 .page-fun-detail .info .bot i {
-  float: right;
+  /* float: right; */
   display: inline-block;
   width: 0.3rem;
   height: 0.3rem;
@@ -357,7 +357,7 @@ export default {
 .fixed-go .fr .wantIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 47%;
   color: #ffffff;
   font-size: 0.2rem;

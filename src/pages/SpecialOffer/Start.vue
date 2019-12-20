@@ -2,23 +2,23 @@
   <div class="page-height">
     <div class="navTop">
       <i class="iconfont back" onclick="javascript:history.go(-1)">&#xe609;</i>
-      <span class="navCon">智慧信阳连免费Wi-Fi</span>
+      <span class="navCon">Smart App连免费Wi-Fi</span>
     </div>
     <div class="ad-pic">
       <img src="~@/assets/images/Image-sure.jpg" class="w100" alt />
     </div>
     <div class="connect">
       <div class="logo">
-        <img src="~@/assets/images/Logo.png" class="w100" />
+        <img src="~@/assets/images/prologo.png" class="w100" />
       </div>
-      <div class="tips">如您已安装智慧信阳，请点击</div>
+      <div class="tips">如您已安装Smart App，请点击</div>
       <div class="start-btn">启动Wi-Fi</div>
     </div>
     <div class="bot-box">
       <div class="tips2">只需下载一次 ，即可全城免费蹭网</div>
       <div class="red-btn">免费全城蹭网</div>
       <div class="copy">
-        智慧信阳便民服务平台
+        Smart App便民服务平台
         <em>浉河区政府示范项目</em>
       </div>
     </div>

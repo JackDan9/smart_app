@@ -17,8 +17,8 @@
     </div>
     <div class="banner" v-infinite-scroll="loadMore">
       <mt-swipe :auto="4000" class="swipe" v-if="ads">
-        <template v-for="ad in ads">
-          <mt-swipe-item class="swipe-item">
+        <template v-for="(ad, index) in ads">
+          <mt-swipe-item class="swipe-item" :key="index">
             <a v-bind:href="ad['url']">
               <img v-if="ad['picture']" :src="fullUrl(ad['picture'])" />
             </a>
@@ -33,7 +33,7 @@
       <div class="info">
         <p class="p1">
           <span>{{company['name']}}</span>
-          <img v-if="company['issend']" src="../assets/images/tco.png" alt />
+          <img v-if="company['issend']" src="~@/assets/images/tco.png" alt />
         </p>
         <p class="p2">
           <span>{{company['notice']}}</span>
@@ -97,8 +97,9 @@
             <span>热销榜</span>
           </div>
           <ul>
-            <template v-for="category in categorys">
+            <template v-for="(category, index) in categorys">
               <li
+                :key="index"
                 v-bind:class="[category['isClass'] ? 'current' : '']"
                 v-on:click="addChange(category['id'])"
               >
@@ -115,8 +116,8 @@
         <div class="con">
           <div class="t1 dn">天天新特惠，{{company['teamprice']}}折限时抢</div>
           <div class="t2 dn">（不与其他活动同享）</div>
-          <template v-for="category in categorys">
-            <ul v-bind:class="[category['isClass'] ? '' : 'dn']">
+          <template v-for="(category, index) in categorys">
+            <ul v-bind:class="[category['isClass'] ? '' : 'dn']" :key="index">
               <template v-for="product in category['product']">
                 <li>
                   <router-link :to="{path:'/product/'+product['id'] ,query:{tab:'hide'}}">
@@ -612,7 +613,7 @@ export default {
 }
 .product-tc .info .p2 .accounts {
   display: inline-block;
-  float: right;
+  /* float: right; */
   overflow: hidden;
   width: 0.4rem;
   height: 0.28rem;
@@ -653,7 +654,7 @@ export default {
   color: #9c9c9c;
 }
 .product-tc .info .bot i {
-  float: right;
+  /* float: right; */
   display: inline-block;
   width: 0.3rem;
   height: 0.3rem;
@@ -661,11 +662,11 @@ export default {
   border: #eeeeee 1px solid;
 }
 .product-tc .info .bot .tel-ico {
-  background: url("../assets/images/ico-tel.png") center center no-repeat;
+  background: url("~@/assets/images/ico-tel.png") center center no-repeat;
   background-size: 0.14rem 0.19rem;
 }
 .product-tc .info .bot .map-ico {
-  background: url("../assets/images/ico-map.png") center center no-repeat;
+  background: url("~@/assets/images/ico-map.png") center center no-repeat;
   background-size: 0.14rem 0.19rem;
 }
 .gray-line {
@@ -894,7 +895,7 @@ export default {
   width: 0.5rem;
   height: 0.5rem;
   margin-left: 0.1rem;
-  background: url("../assets/images/prologo.png") center center no-repeat;
+  background: url("~@/assets/images/prologo.png") center center no-repeat;
   background-size: contain;
 }
 .pro-bot .pri {
@@ -979,7 +980,7 @@ export default {
   width: 0.68rem;
   height: 0.13rem;
   overflow: hidden;
-  background: url("../assets/images/star-gray.png") top left no-repeat;
+  background: url("~@/assets/images/star-gray.png") top left no-repeat;
   background-size: 0.68rem 0.13rem;
 }
 .redstars span {
@@ -1063,11 +1064,11 @@ export default {
   height: 0.14rem;
   overflow: hidden;
   display: inline-block;
-  background: url("../assets/images/sele1.png") center center no-repeat;
+  background: url("~@/assets/images/sele1.png") center center no-repeat;
   background-size: contain;
 }
 .product-tc .filter .current {
-  background: url("../assets/images/sele2.png") center center no-repeat;
+  background: url("~@/assets/images/sele2.png") center center no-repeat;
   background-size: contain;
 }
 .product-tc .filter span {
@@ -1119,7 +1120,7 @@ export default {
   height: 0.15rem;
   overflow: hidden;
   float: left;
-  background: url("../assets/images/digg5.png") center center no-repeat;
+  background: url("~@/assets/images/digg5.png") center center no-repeat;
   background-size: contain;
 }
 .product-tc .comm li .p3 .box {

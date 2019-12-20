@@ -12,8 +12,8 @@
         infinite-scroll-disabled="isLoading"
         infinite-scroll-distance="10"
       >
-        <template v-for="charity in charitys">
-          <li>
+        <template v-for="(charity, index) in charitys">
+          <li :key="index">
             <a v-on:click="changeClick(charity.id)">
               <div class="pic">
                 <img
@@ -45,10 +45,10 @@
 </template>
 
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config.js";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
 
 export default {
   components: {
@@ -175,7 +175,7 @@ export default {
 .welfare-list li .operation .btn {
   width: 0.73rem;
   height: 0.24rem;
-  background: url("../../assets/images/bnt-vote.png") center center no-repeat;
+  background: url("~@/assets/images/bnt-vote.png") center center no-repeat;
   background-size: contain;
 }
 .welfare-list li .operation .num {

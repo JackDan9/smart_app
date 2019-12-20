@@ -88,7 +88,7 @@
                 <img
                   class="index"
                   v-bind:src="fullUrl(itemPic.picture) + '!640.200'"
-                  alt="智慧信阳欢迎您!"
+                  alt="Welcome to Smart App!"
                 />
               </li>
             </ul>
@@ -306,33 +306,27 @@ export default {
   border-radius: 5%;
 }
 .modules .first {
-  background: url(../../assets/images/forum/community/modules/first.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/modules/first.png") center center no-repeat;
   background-size: cover;
 }
 .modules .second {
-  background: url(../../assets/images/forum/community/modules/second.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/modules/second.png") center center no-repeat;
   background-size: cover;
 }
 .modules .third {
-  background: url(../../assets/images/forum/community/modules/third.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/modules/third.png") center center no-repeat;
   background-size: cover;
 }
 .modules .fourth {
-  background: url(../../assets/images/forum/community/modules/fourth.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/modules/fourth.png") center center no-repeat;
   background-size: cover;
 }
 .modules .fifth {
-  background: url(../../assets/images/forum/community/modules/fifth.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/modules/fifth.png") center center no-repeat;
   background-size: cover;
 }
 .modules .sixth {
-  background: url(../../assets/images/forum/community/modules/sixth.png) center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/modules/sixth.png") center center no-repeat;
   background-size: cover;
 }
 /* 置顶 */
@@ -355,7 +349,7 @@ export default {
   border-bottom: 1px solid #f1f1f1;
 }
 .officialAct .iconOff {
-  float: left;
+  /* float: left; */
   display: inline-block;
   overflow: hidden;
   width: 0.4rem;
@@ -386,7 +380,7 @@ export default {
 .officialAct .offCon {
   display: inline-block;
   width: 69%;
-  float: right;
+  /* float: right; */
   font-size: 0.13rem;
 }
 .officialAct .offConOther {
@@ -427,7 +421,7 @@ export default {
 }
 .see {
   display: inline-block;
-  float: right;
+  /* float: right; */
   height: 0.5rem;
   line-height: 0.5rem;
 }
@@ -454,7 +448,7 @@ export default {
   overflow: hidden;
   width: 0.45rem;
   height: 0.45rem;
-  float: left;
+  /* float: left; */
   border-radius: 0.45rem;
   margin-right: 0.1rem;
   margin-left: 0.1rem;
@@ -477,7 +471,7 @@ export default {
   height: auto;
   margin-top: 0.1rem;
   line-height: 0.18rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 .labelFir .act {
   display: inline-block;
@@ -493,14 +487,14 @@ export default {
 }
 .labelFir .actTitle {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 80%;
   font-size: 0.16rem;
   letter-spacing: 0.01rem;
 }
 .labelFir .actNotTitle {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 100%;
   padding: 0.1rem 0;
   font-size: 0.16rem;
@@ -557,11 +551,11 @@ export default {
   width: 100%;
   height: 0.5rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 .bottom .left {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 66%;
   height: 0.5rem;
   line-height: 0.05rem;
@@ -589,13 +583,12 @@ export default {
 .joinIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 0.16rem;
   height: 0.16rem;
   margin-top: 0.15rem;
   margin-right: 0.05rem;
-  background: url("../../assets/images/forum/community/bottom/join.png") center
-    center no-repeat;
+  background: url("~@/assets/images/forum/community/bottom/join.png") center center no-repeat;
   background-size: contain;
 }
 .bottom .comment {
@@ -605,13 +598,12 @@ export default {
 .commentIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 0.16rem;
   height: 0.16rem;
   margin-top: 0.17rem;
   margin-right: 0.05rem;
-  background: url("../../assets/images/forum/community/bottom/comment.png")
-    center center no-repeat;
+  background: url("~@/assets/images/forum/community/bottom/comment.png") center center no-repeat;
   background-size: contain;
 }
 </style>

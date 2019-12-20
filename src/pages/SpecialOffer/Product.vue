@@ -351,7 +351,7 @@ em {
   width: 0.5rem;
   height: 0.5rem;
   margin-left: 0.1rem;
-  background: url("~@/assets/images/prologo.png") center center no-repeat;
+  background: url("~@/assets/images/proimg.png") center center no-repeat;
   background-size: contain;
 }
 .pro-bot .pri {

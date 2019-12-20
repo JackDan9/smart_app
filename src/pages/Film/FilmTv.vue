@@ -15,24 +15,28 @@
       <div class="banner1">
         <div class="swiper-container">
           <mt-swipe :auto="4000" class="swipe" v-bind:class="[isClass ? '' : 'dn']">
-            <template v-for="ad in video_ads">
-              <mt-swipe-item class="swipe-item">
-                <a v-on:click="changeClick(ad['id'],ad['url'])">
+            <template v-for="(video_ad, index) in video_ads">
+              <mt-swipe-item class="swipe-item" :key="index">
+                <a v-on:click="changeClick(video_ad['id'],video_ad['url'])">
                   <div class="swiper-slide">
-                    <img v-if="ad['picture']" :src="fullUrl(ad['picture'])+'!640.301'" class="w100" />
+                    <img 
+                      v-if="video_ad['picture']" 
+                      :src="fullUrl(video_ad['picture'])+'!640.301'" 
+                      class="w100" 
+                    />
                   </div>
                 </a>
               </mt-swipe-item>
             </template>
           </mt-swipe>
           <mt-swipe :auto="4000" class="swipe" v-bind:class="[isClass ? 'dn' : '']">
-            <template v-for="d_ad in d_video_ads">
-              <mt-swipe-item class="swipe-item">
-                <a v-on:click="changeClick(d_ad['id'],d_ad['url'])">
+            <template v-for="(d_video_ad, index) in d_video_ads">
+              <mt-swipe-item class="swipe-item" :key="index">
+                <a v-on:click="changeClick(d_video_ad['id'],d_video_ad['url'])">
                   <div class="swiper-slide">
                     <img
-                      v-if="d_ad['picture']"
-                      :src="fullUrl(d_ad['picture'])+'!640.301'"
+                      v-if="d_video_ad['picture']"
+                      :src="fullUrl(d_video_ad['picture'])+'!640.301'"
                       class="w100"
                     />
                   </div>
@@ -48,11 +52,11 @@
           <span>Hot!</span>
         </div>
         <swiper :options="swiperOption" v-bind:class="[isClass ? '' : 'dn']">
-          <template v-for="hot_lines in hots">
-            <swiper-slide>
+          <template v-for="(hot_lines, index) in hots">
+            <swiper-slide :key="index">
               <ul>
-                <template v-for="hot_line in hot_lines">
-                  <li>
+                <template v-for="(hot_line, index) in hot_lines">
+                  <li :key="index">
                     <router-link :to="{ path: '/filmdetail/'+hot_line.id}">
                       <img :src="fullUrl(hot_line['picture'])+'!182.263'" class="w33" />
                       <p>{{hot_line['title']}}</p>
@@ -65,11 +69,11 @@
           </template>
         </swiper>
         <swiper :options="swiperOption" v-bind:class="[isClass ? 'dn' : '']">
-          <template v-for="d_hot_lines in d_hots">
-            <swiper-slide>
+          <template v-for="(d_hot_lines, index) in d_hots">
+            <swiper-slide :key="index">
               <ul>
-                <template v-for="d_hot_line in d_hot_lines">
-                  <li>
+                <template v-for="(d_hot_line, index) in d_hot_lines">
+                  <li :key="index">
                     <router-link :to="{ path: '/filmdetail/'+d_hot_line.id}">
                       <img :src="fullUrl(d_hot_line['picture'])+'!182.263'" class="w33" />
                       <p>{{d_hot_line['title']}}</p>
@@ -90,7 +94,7 @@
         <div class="con" v-bind:class="[isClass ? '' : 'dn']">
           <div class="box">
             <router-link :to="{ path: '/filmlist/1/1/'}">
-              <img src="../../assets/images/dongzuo.png" class="w100" />
+              <img src="~@/assets/images/dongzuo.png" class="w100" />
               <div class="tag">
                 <span>动作</span>
               </div>
@@ -98,7 +102,7 @@
           </div>
           <div class="box">
             <router-link :to="{ path: '/filmlist/1/2/'}" append>
-              <img src="../../assets/images/kehuan.png" class="w100" />
+              <img src="~@/assets/images/kehuan.png" class="w100" />
               <div class="tag">
                 <span>科幻</span>
               </div>
@@ -106,7 +110,7 @@
           </div>
           <div class="box">
             <router-link :to="{ path: '/filmlist/1/3/'}">
-              <img src="../../assets/images/jingsong.png" class="w100" />
+              <img src="~@/assets/images/jingsong.png" class="w100" />
               <div class="tag">
                 <span>惊悚</span>
               </div>
@@ -114,7 +118,7 @@
           </div>
           <div class="box">
             <router-link :to="{ path: '/filmlist/1/4/'}">
-              <img src="../../assets/images/aiqing.png" class="w100" />
+              <img src="~@/assets/images/aiqing.png" class="w100" />
               <div class="tag">
                 <span>爱情</span>
               </div>
@@ -122,7 +126,7 @@
           </div>
           <div class="box">
             <router-link :to="{ path: '/filmlist/1/5/'}">
-              <img src="../../assets/images/xiju.png" class="w100" />
+              <img src="~@/assets/images/xiju.png" class="w100" />
               <div class="tag">
                 <span>喜剧</span>
               </div>
@@ -132,7 +136,7 @@
         <div class="con" v-bind:class="[isClass ? 'dn' : '']">
           <div class="box">
             <router-link :to="{ path: '/filmlist/2/1/'}">
-              <img src="../../assets/images/mp1.png" class="w100" />
+              <img src="~@/assets/images/mp1.png" class="w100" />
               <div class="tag">
                 <span>国产</span>
               </div>
@@ -140,7 +144,7 @@
           </div>
           <div class="box">
             <router-link :to="{ path: '/filmlist/2/2/'}">
-              <img src="../../assets/images/mp2.png" class="w100" />
+              <img src="~@/assets/images/mp2.png" class="w100" />
               <div class="tag">
                 <span>欧美</span>
               </div>
@@ -148,7 +152,7 @@
           </div>
           <div class="box">
             <router-link :to="{ path: '/filmlist/2/3/'}">
-              <img src="../../assets/images/mp3.png" class="w100" />
+              <img src="~@/assets/images/mp3.png" class="w100" />
               <div class="tag">
                 <span>日韩</span>
               </div>
@@ -156,7 +160,7 @@
           </div>
           <div class="box">
             <router-link :to="{ path: '/filmlist/2/4/'}">
-              <img src="../../assets/images/mp4.png" class="w100" />
+              <img src="~@/assets/images/mp4.png" class="w100" />
               <div class="tag">
                 <span>其他</span>
               </div>
@@ -169,8 +173,8 @@
 </template>
 
 <script>
-import Error from "../../components/Error.vue";
-import Config from "../../config.js";
+import Error from "@/components/Error";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 
@@ -343,7 +347,7 @@ export default {
 }
 .film-detail .choice a {
   display: inline-block;
-  float: left;
+  /* float: left; */
   width: 0.5rem;
   height: 0.3rem;
   border: #9d9d9d 1px solid;

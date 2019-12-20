@@ -66,7 +66,7 @@
                 <div class="img">
                   <img
                     v-bind:src="[item.picture ? fullUrl(item.picture) : defaultPicUrl()]"
-                    alt="智慧信阳"
+                    alt="Smart App"
                     class="personIconImg"
                   />
                 </div>
@@ -92,7 +92,7 @@
           <div class="left">
             <a
               href="javascript:;"
-              onclick="easemobim.bind({configId: "2434a302-9b3f-41de-b69d-8c8ed718e1a5"})"
+              onclick="easemobim.bind({configId: '2434a302-9b3f-41de-b69d-8c8ed718e1a5'})"
             >
               <i class="serviceIcon"></i>
               <span class="serviceCon">联系客服</span>
@@ -116,12 +116,12 @@
   </div>
 </template>
 <script>
-import Loading from "../../components/Loading.vue";
-import Error from "../../components/Error.vue";
-import Store from "../../store.js";
-import Config from "../../config.js";
+import Loading from "@/components/Loading";
+import Error from "@/components/Error";
+import Store from "@/store/store";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
-import WxShare from "../../wx.js";
+import WxShare from "@/utils/wx/wx";
 export default {
   components: {
     Error
@@ -150,12 +150,11 @@ export default {
   },
   mounted() {
     if (Store.getAuthUid()) {
-      this.$http
-        .get(this.whoami, {}).then(response => {
-            const ret = JSON.parse(response.data);
-            if (ret && ret["code"] === 0) {
-                this.username = ret["nickname"] ? ret["nickname"] : ret["username"];
-            }
+      this.$http.get(this.whoami, {}).then(response => {
+        const ret = JSON.parse(response.data);
+        if (ret && ret["code"] === 0) {
+          this.username = ret["nickname"] ? ret["nickname"] : ret["username"];
+        }
       });
     }
     const id = +this.$route.params.id;
@@ -465,7 +464,7 @@ export default {
   height: 0.5rem;
   margin-left: 0.1rem;
   line-height: 0.5rem;
-  vertical-align: middle;
+  /* vertical-align: middle; */
   font-size: 0;
 }
 .productComment .commentHeader .left {
@@ -490,20 +489,19 @@ export default {
 .productComment .commentHeader .right {
   display: inline-block;
   overflow: hidden;
-  float: right;
+  /* float: right; */
   margin-right: 0.1rem;
   font-size: 0.15rem;
   color: #787878;
 }
 .goIcon {
   display: inline-block;
-  float: right;
+  /* float: right; */
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.135rem;
   margin-left: 0.1rem;
-  background: url("../../assets/images/SpecialOffer/productDetail/goIcon.png")
-    center center no-repeat;
+  background: url("~@/assets/images/SpecialOffer/productDetail/goIcon.png") center center no-repeat;
   background-size: contain;
 }
 /* 评论用户信息 */
@@ -533,8 +531,7 @@ export default {
   width: 0.2rem;
   height: 0.2rem;
   border-radius: 0.2rem;
-  background: url("../../assets/images/user/icon-male.png") center center
-    no-repeat;
+  background: url("~@/assets/images/user/icon-male.png") center center no-repeat;
   background-size: 0.1rem, 0.1rem;
   background-color: #28b4aa;
 }
@@ -553,7 +550,7 @@ export default {
 }
 .username {
   display: inline-block;
-  float: right;
+  /* float: right; */
   overflow: hidden;
   width: 72%;
   line-height: 0.5rem;
@@ -563,7 +560,7 @@ export default {
 .commentList .index .right {
   display: inline-block;
   overflow: hidden;
-  float: right;
+  /* float: right; */
   height: 0.5rem;
   line-height: 0.5rem;
   font-size: 0;
@@ -593,7 +590,7 @@ export default {
 }
 .likedInfo .likedNum {
   display: inline-block;
-  float: right;
+  /* float: right; */
   font-size: 0.15rem;
   margin-left: 0.1rem;
   color: #787878;
@@ -612,13 +609,12 @@ export default {
 }
 .productParamIcon {
   display: inline-block;
-  float: left;
+  /* float: left; */
   overflow: hidden;
   width: 0.2rem;
   height: 0.2rem;
   margin-top: 0.14rem;
-  background: url("../../assets/images/SpecialOffer/productDetail/productParam.png")
-    center center no-repeat;
+  background: url("~@/assets/images/SpecialOffer/productDetail/productParam.png") center center no-repeat;
   background-size: contain;
 }
 .productParamCon {
@@ -749,7 +745,7 @@ export default {
 .productFooter .left {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 45%;
   height: 0.5rem;
   line-height: 0.5rem;
@@ -760,11 +756,11 @@ export default {
 .serviceIcon {
   display: inline-block;
   overflow: hidden;
-  float: left;
+  /* float: left; */
   width: 35%;
   height: 0.2rem;
   margin-top: 0.12rem;
-  background: url("../../assets/images/SpecialOffer/productDetail/customerService.png")
+  background: url("~@/assets/images/SpecialOffer/productDetail/customerService.png")
     right no-repeat;
   background-size: contain;
 }

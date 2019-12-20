@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="navTop">
-      <router-link :to="{path:'/'}">
+      <router-link :to="{path: '/'}">
         <i class="iconfont back">&#xe609;</i>
       </router-link>
       <span class="navCon">合作入驻</span>
@@ -41,11 +41,11 @@
 </template>
 
 <script>
-import Error from "../../components/Error.vue";
-import Tab from "../../components/Tab.vue";
-import Config from "../../config.js";
+import Error from "@/components/Error";
+import Tab from "@/components/Tab";
+import Config from "@/config/config";
 import { Toast } from "mint-ui";
-import Store from "../../store.js";
+import Store from "@/store/store";
 
 export default {
   components: {
@@ -140,7 +140,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: url("../../assets/images/cooperateBg/cooperateBg.jpg") center
+  background: url("~@/assets/images/cooperateBg/cooperateBg.jpg") center
     center no-repeat;
   background-size: 100% 100%;
 }
@@ -213,7 +213,7 @@ export default {
   margin-top: 106%;
   display: -webkit-box;
   overflow: hidden;
-  background: url("../../assets/images/cooperateBg/cooperateBtn.jpg") center
+  background: url("~@/assets/images/cooperateBg/cooperateBtn.jpg") center
     center no-repeat;
   background-size: 100% 100%;
 }
@@ -225,8 +225,7 @@ export default {
   width: 85%;
   top: 24.5%;
   left: 7.5%;
-  background: url("../../assets/images/cooperateBg/cooperateDiv.png") center
-    center no-repeat;
+  background: url("~@/assets/images/cooperateBg/cooperateDiv.png") center center no-repeat;
   background-size: 100% 100%;
 }
 .ping_wrap .inp {
@@ -242,20 +241,20 @@ export default {
   margin-bottom: 25px;
 }
 .inp .inp_username {
-  align: center;
+  text-align: center;
   padding-left: 3%;
 }
 .inp .content {
   display: inline-block;
   width: 20%;
   height: 0.4rem;
-  float: left;
+  /* float: left; */
   text-align: center;
   font-size: 0.16rem;
   font-weight: 100;
   line-height: 0.4rem;
   color: #ffffff;
-  leter-spacing: 1px;
+  letter-spacing: 1px;
 }
 .ping_wrap .inp input {
   width: 78%;
