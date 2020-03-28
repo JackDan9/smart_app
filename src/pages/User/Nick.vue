@@ -17,7 +17,7 @@ import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config.js";
 import { Toast } from "mint-ui";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 
 export default {
   components: {
@@ -34,7 +34,7 @@ export default {
     };
   },
   beforeMount: function() {
-    if (Store.getAuthUid()) {
+    if (storage.getAuthUid()) {
       this.$http.get(this.whoami, {}).then(response => {
         const ret = JSON.parse(response.data);
         if (ret && ret["code"] === 0) {
@@ -66,7 +66,7 @@ export default {
           const ret = JSON.parse(response.data || "[]");
           if (ret && ret.code === 0) {
             Toast("操作成功!");
-            Store.setUserName(nickname);
+            storage.setUserName(nickname);
             this.$router.push("/userset");
           } else {
             Toast(ret.msg);

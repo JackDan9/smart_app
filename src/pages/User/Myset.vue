@@ -40,13 +40,13 @@
 </template>
 <script>
 import { Toast } from "mint-ui";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 export default {
   methods: {
     goAuthentication: function() {
       var share = {
         action: "verify",
-        Authorization: "Xyapp " + Store.getAuthUid(),
+        Authorization: "Xyapp " + storage.getAuthUid(),
         deviceWIFI: "http://117.158.161.250",
         url: "http://www.baidu.com?" + new Date().getTime()
       };

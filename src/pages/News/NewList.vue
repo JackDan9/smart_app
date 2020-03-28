@@ -73,7 +73,7 @@
 import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 import { Toast } from "mint-ui";
 
 export default {

@@ -128,7 +128,7 @@
 </template>
 
 <script>
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 import Config from "@/config/config";
 import { Toast } from "mint-ui";
 export default {
@@ -158,7 +158,7 @@ export default {
     };
   },
   beforeMount: function() {
-    if (Store.getAuthUid()) {
+    if (storage.getAuthUid()) {
       this.$http.get(this.whoami, {}).then(response => {
         const ret = JSON.parse(response.data);
         if (ret && ret.code === 0) {
@@ -202,7 +202,7 @@ export default {
           let id = this.$route.params.id;
           var share = {
             action: "uploadImage",
-            Authorization: "Xyapp " + Store.getAuthUid(),
+            Authorization: "Xyapp " + storage.getAuthUid(),
             api: "/bar/upload/" + id + "/1/"
           };
           if (window.postMessage)

@@ -13,7 +13,7 @@
   </div>
 </template>
 <script>
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 import { Toast } from "mint-ui";
 export default {
   data() {
@@ -25,7 +25,7 @@ export default {
     };
   },
   mounted() {
-    if (Store.getAuthUid()) {
+    if (storage.getAuthUid()) {
       this.$http.get(this.whoami, {}).then(response => {
         const ret = JSON.parse(response.data || "[]");
         if (ret && ret.code === 0) {

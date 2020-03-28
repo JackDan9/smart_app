@@ -75,7 +75,7 @@
 <script>
 import Loading from "@/components/Loading";
 import Error from "@/components/Error";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 import Config from "@/config/config";
 import { Toast } from "mint-ui";
 export default {
@@ -103,7 +103,7 @@ export default {
       return Config.baseUrl + url;
     },
     goBack: function() {
-      Store.setIntoPage(0);
+      storage.setIntoPage(0);
       this.$router.push("/");
     },
     addChange: function(con) {

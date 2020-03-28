@@ -138,11 +138,13 @@
 import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config";
+
 export default {
   components: {
     Error,
     Tab
   },
+  
   data() {
     return {
       askList: [],

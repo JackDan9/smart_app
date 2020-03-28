@@ -165,7 +165,7 @@ import Loading from "@/components/Loading";
 import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config.js";
-import Store from "@/store/store.js";
+import storage from "@/storage/storage.js";
 import { Toast } from "mint-ui";
 
 export default {
@@ -203,7 +203,7 @@ export default {
     };
   },
   mounted() {
-    if (Store.getAuthUid()) {
+    if (storage.getAuthUid()) {
       this.$http.get(this.whoami, {}).then(response => {
         const ret = JSON.parse(response.data);
         if (ret && ret["code"] === 0) {
@@ -214,10 +214,10 @@ export default {
           } else {
             this.isLoading = true;
             this.getData();
-            if (Store.getCompanyid() && Store.getCompanyid() == id) {
+            if (storage.getCompanyid() && storage.getCompanyid() == id) {
               this.isProClass = 0;
             } else {
-              Store.setCompanyid(id);
+              storage.setCompanyid(id);
             }
           }
         } else {
@@ -425,7 +425,7 @@ export default {
           const ret = JSON.parse(response.data || "[]");
           if (ret && ret.code === 0) {
             var id = ret["data"]["id"];
-            Store.setCompanyid("");
+            storage.setCompanyid("");
             setTimeout(() => {
               this.$router.push("/pay/" + id + "?tab=hide");
             }, 1000);

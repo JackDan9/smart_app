@@ -108,208 +108,214 @@
 </template>
 
 <script>
-import Loading from "@/components/Loading";
-import Error from "@/components/Error";
-import Tab from "@/components/Tab";
-import Config from "@/config/config";
-import Store from "@/store/store";
-import { Toast } from "mint-ui";
-import WxShare from "@/utils/wx/wx.js";
-export default {
-  components: {
-    Error
-  },
-  data() {
-    return {
-      charity: [],
-      comment_list: [],
-      isLoading: false,
-      isError: false,
-      error: "",
-      viewUrl: "charity/view/",
-      likeUrl: "like/add/",
-      whoami: "user/whoami/",
-      wxShareUrl: "share/",
-      username: "",
-      picture: "",
-      comment_num: 0,
-      commentUrl: "comment/add/"
-    };
-  },
+  import { Toast } from "mint-ui";
+  import WxShare from "@/utils/wx/wx.js";
 
-  mounted() {
-    if (Store.getAuthUid()) {
-      this.$http.get(this.whoami, {}).then(response => {
-        const ret = JSON.parse(response.data);
-        if (ret && ret["code"] === 0) {
-          this.username = ret["nickname"] ? ret["nickname"] : ret["username"];
-          this.picture = ret["picture"];
-        }
-      });
-    }
-    const id = +this.$route.params.id;
-    if (!id) {
-      this.isError = true;
-      this.error = "参数错误";
-    } else {
-      this.isLoading = true;
-      this.getData();
-    }
-    this.getWx();
-  },
-  methods: {
-    fullUrl: function(url) {
-      return Config.baseUrl + url;
+  import Loading from "@/components/Loading";
+  import Error from "@/components/Error";
+  import Tab from "@/components/Tab";
+  import Config from "@/config/config";
+  import Storage from "@/storage/storage";
+
+  export default {
+    components: {
+      Error
     },
-    getWx: function() {
-      this.$http
-        .post(this.wxShareUrl, {
-          url: window.location.href,
-          id: this.$route.params.id,
-          type: 2
-        })
-        .then(response => {
+    data() {
+      return {
+        charity: [],
+        comment_list: [],
+        isLoading: false,
+        isError: false,
+        error: "",
+        viewUrl: "charity/view/",
+        likeUrl: "like/add/",
+        whoami: "user/whoami/",
+        wxShareUrl: "share/",
+        username: "",
+        picture: "",
+        comment_num: 0,
+        commentUrl: "comment/add/"
+      };
+    },
+
+    mounted() {
+      if (Storage.getAuthUid()) {
+        this.$http.get(this.whoami, {}).then(response => {
           const ret = JSON.parse(response.data);
-          if (ret && ret.code == 0) {
-            WxShare.wxinit(ret["data"]);
-          } else {
-            this.error = (ret && ret.msg) || "";
-            this.isError = true;
+          if (ret && ret["code"] === 0) {
+            this.username = ret["nickname"] ? ret["nickname"] : ret["username"];
+            this.picture = ret["picture"];
           }
         });
-    },
-    shareLink: function(text, pic) {
-      var share = {
-        action: "share",
-        url: window.location.href,
-        title: text,
-        img: pic
-      };
-      if (window.postMessage) window.postMessage(JSON.stringify(share), "*");
-      return true;
-    },
-
-    defaultPicUrl: function() {
-      return Config.defaultPic;
-    },
-
-    loadMore() {
-      this.getData();
-    },
-
-    addLike: function(linkid, isLike) {
-      if (!this.username) {
-        this.$router.push("/login");
-        return;
       }
-      if (isLike == 1) {
-        Toast("您已投票!");
+      const id = +this.$route.params.id;
+      if (!id) {
+        this.isError = true;
+        this.error = "参数错误";
       } else {
-        var updown = isLike == 1 ? 2 : 1;
-        if (this.charity["id"] == linkid) {
-          this.charity["isLike"] = updown === 1 ? 1 : 0;
-          this.charity["btnHtml"] = updown === 1 ? "投票成功" : "我要投票";
-          this.charity["vote"] =
-            updown === 1
-              ? this.charity["vote"] * 1 + 1
-              : this.charity["vote"] * 1 - 1;
-        }
-        this.getLike(linkid, updown);
+        this.isLoading = true;
+        this.getData();
       }
+      this.getWx();
     },
+    methods: {
+      fullUrl: function(url) {
+        return Config.baseUrl + url;
+      },
 
-    addChange: function(con) {
-      var isClass = con == "con1" ? 1 : 0;
-      this.charity["isClass"] = isClass;
-    },
+      getWx: function() {
+        this.$http
+          .post(this.wxShareUrl, {
+            url: window.location.href,
+            id: this.$route.params.id,
+            type: 2
+          })
+          .then(response => {
+            const ret = JSON.parse(response.data);
+            if (ret && ret.code == 0) {
+              WxShare.wxinit(ret["data"]);
+            } else {
+              this.error = (ret && ret.msg) || "";
+              this.isError = true;
+            }
+          });
+      },
 
-    addComment: function(linkid) {
-      if (!this.username) {
-        this.$router.push("/login");
-        return;
-      }
-      var comment = this.$refs.comment.value;
-      this.getComment(linkid, comment);
-    },
+      shareLink: function(text, pic) {
+        var share = {
+          action: "share",
+          url: window.location.href,
+          title: text,
+          img: pic
+        };
+        if (window.postMessage) window.postMessage(JSON.stringify(share), "*");
+        return true;
+      },
 
-    getData(callback) {
-      this.$http.post(this.viewUrl, { id: this.$route.params.id }).then(
-        response => {
-          const ret = JSON.parse(response.data || "[]");
-          if (ret && ret.code === 0) {
-            this.charity = ret["data"];
-            this.comment_list = ret["data"]["comment_list"];
-            this.comment_num = ret["data"]["comment_num"];
-          } else {
-            this.error = (ret && ret.msg) || "";
-            this.isError = true;
-          }
-          if (typeof callback === "function") {
-            callback.call(this);
-          }
-        },
-        response => {
-          this.isError = true;
-          this.error = "";
-          if (typeof callback === "function") {
-            callback.call(this);
-          }
+      defaultPicUrl: function() {
+        return Config.defaultPic;
+      },
+
+      loadMore() {
+        this.getData();
+      },
+
+      addLike: function(linkid, isLike) {
+        if (!this.username) {
+          this.$router.push("/login");
+          return;
         }
-      );
-    },
-    getLike(linkid, updown) {
-      this.$http
-        .post(this.likeUrl, { linkid: linkid, updown: updown, type: 1 })
-        .then(
+        if (isLike == 1) {
+          Toast("您已投票!");
+        } else {
+          var updown = isLike == 1 ? 2 : 1;
+          if (this.charity["id"] == linkid) {
+            this.charity["isLike"] = updown === 1 ? 1 : 0;
+            this.charity["btnHtml"] = updown === 1 ? "投票成功" : "我要投票";
+            this.charity["vote"] =
+              updown === 1
+                ? this.charity["vote"] * 1 + 1
+                : this.charity["vote"] * 1 - 1;
+          }
+          this.getLike(linkid, updown);
+        }
+      },
+
+      addChange: function(con) {
+        var isClass = con == "con1" ? 1 : 0;
+        this.charity["isClass"] = isClass;
+      },
+
+      addComment: function(linkid) {
+        if (!this.username) {
+          this.$router.push("/login");
+          return;
+        }
+        var comment = this.$refs.comment.value;
+        this.getComment(linkid, comment);
+      },
+
+      getData(callback) {
+        this.$http.post(this.viewUrl, { id: this.$route.params.id }).then(
           response => {
             const ret = JSON.parse(response.data || "[]");
             if (ret && ret.code === 0) {
-              if (updown == 1) {
-                Toast("投票成功!");
+              this.charity = ret["data"];
+              this.comment_list = ret["data"]["comment_list"];
+              this.comment_num = ret["data"]["comment_num"];
+            } else {
+              this.error = (ret && ret.msg) || "";
+              this.isError = true;
+            }
+            if (typeof callback === "function") {
+              callback.call(this);
+            }
+          },
+          response => {
+            this.isError = true;
+            this.error = "";
+            if (typeof callback === "function") {
+              callback.call(this);
+            }
+          }
+        );
+      },
+
+      getLike(linkid, updown) {
+        this.$http
+          .post(this.likeUrl, { linkid: linkid, updown: updown, type: 1 })
+          .then(
+            response => {
+              const ret = JSON.parse(response.data || "[]");
+              if (ret && ret.code === 0) {
+                if (updown == 1) {
+                  Toast("投票成功!");
+                } else {
+                  Toast("投票取消!");
+                }
               } else {
-                Toast("投票取消!");
+                Toast(ret.msg);
+                this.error = (ret && ret.msg) || "";
+                this.isError = true;
               }
-            } else {
-              Toast(ret.msg);
-              this.error = (ret && ret.msg) || "";
+            },
+            response => {
               this.isError = true;
+              this.error = "";
             }
-          },
-          response => {
-            this.isError = true;
-            this.error = "";
-          }
-        );
-    },
-    getComment(linkid, comment) {
-      this.$http
-        .post(this.commentUrl, { linkid: linkid, comment: comment, type: 1 })
-        .then(
-          response => {
-            const ret = JSON.parse(response.data || "[]");
-            if (ret && ret.code === 0) {
-              Toast("评论成功!");
-              var comment_data = {};
-              comment_data["username"] = this.username;
-              comment_data["u_picture"] = this.picture;
-              comment_data["comment"] = comment;
-              comment_data["commenttime"] = "刚刚";
-              this.comment_list.unshift(comment_data);
-              this.comment_num = this.comment_num + 1;
-            } else {
-              Toast(ret.msg);
-              this.error = (ret && ret.msg) || "";
+          );
+      },
+
+      getComment(linkid, comment) {
+        this.$http
+          .post(this.commentUrl, { linkid: linkid, comment: comment, type: 1 })
+          .then(
+            response => {
+              const ret = JSON.parse(response.data || "[]");
+              if (ret && ret.code === 0) {
+                Toast("评论成功!");
+                var comment_data = {};
+                comment_data["username"] = this.username;
+                comment_data["u_picture"] = this.picture;
+                comment_data["comment"] = comment;
+                comment_data["commenttime"] = "刚刚";
+                this.comment_list.unshift(comment_data);
+                this.comment_num = this.comment_num + 1;
+              } else {
+                Toast(ret.msg);
+                this.error = (ret && ret.msg) || "";
+                this.isError = true;
+              }
+            },
+            response => {
               this.isError = true;
+              this.error = "";
             }
-          },
-          response => {
-            this.isError = true;
-            this.error = "";
-          }
-        );
+          );
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped>

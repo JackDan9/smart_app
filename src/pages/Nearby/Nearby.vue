@@ -108,7 +108,7 @@ import Loading from "@/components/Loading";
 import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config";
-import Store from "@/store/store";
+import Storage from "@/storage/storage";
 
 export default {
   components: {
@@ -137,6 +137,7 @@ export default {
       const bufferCategoryid = +(buffer["props"]["categoryid"] || 0);
       const categoryid = +this.$route.params.categoryid;
       if (bufferCategoryid !== categoryid) {
+
       } else {
         preData.page = buffer["props"]["page"] || 1;
         preData.companys = buffer["data"] || [];
@@ -148,8 +149,9 @@ export default {
 
     return preData;
   },
+
   mounted() {
-    const point = Store.getPOINT();
+    const point = Storage.getPOINT();
     if (point) {
       this.lat = point["lat"];
       this.lng = point["lng"];
@@ -179,6 +181,7 @@ export default {
   created() {
     window.addEventListener("scroll", this.handleScroll);
   },
+
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
   },

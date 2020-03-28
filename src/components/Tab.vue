@@ -3,30 +3,35 @@
     <div class="h55px"></div>
     <div class="page-bot-nav">
       <ul>
+          <!-- 首页 -->
           <li>
             <router-link :to="{path:'/'}">
               <i v-bind:class="[ index == 1  ? 'iconfont icon-nav1-curr' : 'iconfont icon-nav1']" >&#xe647;</i>
               <p v-bind:class="[ index == 1  ? 'curr' : '']" >首页</p>
             </router-link>
           </li>
+          <!-- 附近 -->
           <li>
             <router-link :to="{path:'/nearby/0/'}">
               <i v-bind:class="[ index == 2  ? 'iconfont icon-nav2-curr' : 'iconfont icon-nav2']" >&#xe619;</i>
               <p v-bind:class="[ index == 2  ? 'curr' : '']" >附近</p>
             </router-link>
           </li>
+          <!-- 嘿咻社区 -->
           <li class="dn">
             <router-link :to="{path: '/wjs/'}">
                 <i v-bind:class="[ index == 3 ? 'iconfont icon-nav3-curr' : 'iconfont icon-nav3']">&#xe602;</i>
                 <p v-bind:class="[ index == 3 ? 'curr' : '']">嘿咻社区</p>
             </router-link>
           </li>
+          <!-- 好玩好物 -->
           <li>
             <router-link :to="{path:'/funlist'}">
                 <i v-bind:class="[ index == 4  ? 'iconfont icon-nav4-curr' : 'iconfont icon-nav4']" >&#xe604;</i>
                 <p v-bind:class="[ index == 4  ? 'curr' : '']" >好玩好物</p>
             </router-link>
           </li>
+          <!-- 商家入驻 -->
           <li>
             <a v-on:click="addChange()" style="cursor:pointer;">
               <i v-bind:class="[ index == 5 ? 'iconfont icon-nav5-curr' : 'iconfont icon-nav5']" >&#xe706;</i>
@@ -37,42 +42,43 @@
     </div>
   </div>
 </template>
+
 <script>
-import Store from '../store.js'
-export default {
-  props: {
-    index: Number,
-  },
-  data () {
-    return {
-      viewListUrl:'company/viewlist/',
-    }
-  },
-  methods: {
-    addChange: function(){
-     const point = Store.getPOINT()
-     var lat = 0
-     var lng = 0
-     if(point){
-       lat = point['lat']
-       lng = point['lng']
-     }
-    // this.getData(lat,lng)
-    this.$router.push('/cooperateHome/')
-   },
-   getData(lat, lng) {
-     this.$http.post(this.viewListUrl,{page:1,categoryid:0,lat:lat,lng:lng} ).then( (response) => {
-       const ret = JSON.parse(response.data || "[]")
-       if(ret && ret.code === 0){
-          this.$router.push('/company/'+ret['data']['near_companyid'])
-       }else{
-         this.error = (ret && ret.msg) || ""
-         this.isError = true
-       }
-     });
+  import Storage from '@/storage/storage'
+  export default {
+    props: {
+      index: Number,
+    },
+    data () {
+      return {
+        viewListUrl: 'company/viewlist/',
+      }
+    },
+    methods: {
+      addChange: function(){
+      const point = Storage.getPOINT()
+      var lat = 0
+      var lng = 0
+      if(point){
+        lat = point['lat']
+        lng = point['lng']
+      }
+      // this.getData(lat,lng)
+      this.$router.push('/cooperateHome/')
+    },
+    getData(lat, lng) {
+      this.$http.post(this.viewListUrl,{page:1,categoryid:0,lat:lat,lng:lng} ).then( (response) => {
+        const ret = JSON.parse(response.data || "[]")
+        if(ret && ret.code === 0){
+            this.$router.push('/company/'+ret['data']['near_companyid'])
+        }else{
+          this.error = (ret && ret.msg) || ""
+          this.isError = true
+        }
+      });
+      }
     }
   }
-}
 </script>
 
 <style>

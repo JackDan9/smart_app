@@ -24,7 +24,7 @@ import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config.js";
 import { Toast } from "mint-ui";
-import Store from "@/store/store.js";
+import storage from "@/storage/storage.js";
 
 export default {
   components: {
@@ -41,7 +41,7 @@ export default {
     };
   },
   beforeMount: function() {
-    if (Store.getAuthUid()) {
+    if (storage.getAuthUid()) {
       this.$http.get(this.whoami, {}).then(response => {
         const ret = JSON.parse(response.data);
         if (ret && ret["code"] === 0) {
@@ -76,7 +76,7 @@ export default {
     changeUpload: function(e) {
       var share = {
         action: "uploadImage",
-        Authorization: "Xyapp " + Store.getAuthUid(),
+        Authorization: "Xyapp " + storage.getAuthUid(),
         api: "/user/upload/"
       };
       if (window.postMessage) window.postMessage(JSON.stringify(share), "*");

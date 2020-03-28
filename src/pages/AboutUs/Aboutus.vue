@@ -32,27 +32,27 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      emailAddress: '13027710816@163.com',
-      weChatOfficialAccountsPlatform: '微信公众号',
-      telPhone: '13027710816',
-      company: '公司名称'
-    }
-  },
-  methods: {
-    seeVersion: function() {
-      var share = {
-        action: "appVersion"
-      };
-      if (window.postMessage) {
-        window.postMessage(JSON.stringify(share), "*");
+  export default {
+    data () {
+      return {
+        emailAddress: '13027710816@163.com',
+        weChatOfficialAccountsPlatform: '微信公众号',
+        telPhone: '13027710816',
+        company: '公司名称'
       }
-      return true;
+    },
+    methods: {
+      seeVersion: function() {
+        var share = {
+          action: "appVersion"
+        };
+        if (window.postMessage) {
+          window.postMessage(JSON.stringify(share), "*");
+        }
+        return true;
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped>

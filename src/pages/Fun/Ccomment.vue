@@ -81,7 +81,7 @@
 </template>
 <script>
 import Config from "@/config/config.js";
-import Store from "@/store/store.js";
+import storage from "@/storage/storage.js";
 import { Toast } from "mint-ui";
 
 export default {
@@ -112,7 +112,7 @@ export default {
       this.isError = true;
       this.error = "参数错误";
     } else {
-      if (Store.getAuthUid()) {
+      if (storage.getAuthUid()) {
         this.$http.get(this.whoami, {}).then(response => {
           const ret = JSON.parse(response.data);
           if (ret && ret["code"] === 0) {

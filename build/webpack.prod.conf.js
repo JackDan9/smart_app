@@ -34,6 +34,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         new webpack.DefinePlugin({
             'process.env': env
         }),
+        /**
+         * webpack 4之前的版本是通过webpack.optimize.CommonsChunkPlugin来压缩js，webpack 4版本之后被移除了，使用config.optimization.splitChunks来代替。
+         */
         new UglifyJsPlugin({
             uglifyOptions: {
                 compress: {

@@ -81,7 +81,7 @@ import Loading from "@/components/Loading";
 import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 
 export default {
   components: {
@@ -105,7 +105,7 @@ export default {
       isClass: 1
     };
 
-    const whichPage = Store.getIntoPage();
+    const whichPage = storage.getIntoPage();
     if (whichPage == 2) {
       preData.isClass = 0;
     }
@@ -205,7 +205,7 @@ export default {
             window.addEventListener("scroll", this.handleScroll);
           }, 50);
         }
-        Store.setIntoPage(1);
+        storage.setIntoPage(1);
       } else {
         if (this.things.length === 0)
           this.getThingData(() => window.scrollTo(0, 0));
@@ -215,7 +215,7 @@ export default {
             window.addEventListener("scroll", this.handleScroll);
           }, 50);
         }
-        Store.setIntoPage(2);
+        storage.setIntoPage(2);
       }
     },
 

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import Config from './config.js'
-import Store from './store.js'
+import Storgae from '@/storage/storage'
 import BufferList from './buffer.js'
 import { i18n } from './i18n';
 
@@ -40,8 +40,8 @@ const router = new VueRouter({
 Vue.http.interceptors.push((request, next) => {
 
   // modify request
-  if(Store.getAuthUid()){
-    Vue.http.headers.common['Authorization'] = 'Xyapp ' + Store.getAuthUid()
+  if(Storgae.getAuthUid()){
+    Vue.http.headers.common['Authorization'] = 'Xyapp ' + Storgae.getAuthUid()
   }
   // continue to next interceptor
   next();
@@ -49,7 +49,7 @@ Vue.http.interceptors.push((request, next) => {
 function receiveMessage(event){
   const data = JSON.parse(event.data);
   if(data['lat'] && data['lng']){
-     Store.setPOINT(data);
+    Storgae.setPOINT(data);
   }
 }
 window.document.addEventListener("message", receiveMessage, false);

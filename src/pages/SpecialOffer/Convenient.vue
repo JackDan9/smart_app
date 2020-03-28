@@ -199,7 +199,7 @@ import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config.js";
 import { Toast } from "mint-ui";
-import Store from "@/store/store.js";
+import storage from "@/storage/storage.js";
 
 export default {
   components: {

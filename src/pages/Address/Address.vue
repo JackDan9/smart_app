@@ -46,7 +46,7 @@ import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config";
 import { Toast } from "mint-ui";
-import Store from "@/store/store";
+import Storage from "@/storage/storage";
 
 export default {
   components: {
@@ -66,7 +66,7 @@ export default {
     };
   },
   beforeMount: function() {
-    if (Store.getAuthUid()) {
+    if (Storage.getAuthUid()) {
       this.$http.get(this.whoami, {}).then(response => {
         const ret = JSON.parse(response.data);
         if (ret && ret["code"] === 0) {
@@ -103,7 +103,7 @@ export default {
       this.$http.post(this.updateUrl, { id: id }).then(response => {
         const ret = JSON.parse(response.data || "[]");
         if (ret && ret.code === 0) {
-          this.$router.replace("/order/" + Store.getCompanyid());
+          this.$router.replace("/order/" + storage.getCompanyid());
         } else {
           Toast("没有登录");
           this.error = (ret && ret.msg) || "";

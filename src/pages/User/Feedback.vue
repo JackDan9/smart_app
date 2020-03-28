@@ -24,7 +24,7 @@ import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config";
 import { Toast } from "mint-ui";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 
 export default {
   components: {
@@ -42,7 +42,7 @@ export default {
   },
 
   beforeMount: function() {
-    if (Store.getAuthUid()) {
+    if (storage.getAuthUid()) {
       this.$http.get(this.whoami, {}).then(response => {
         const ret = JSON.parse(response.data);
         if (ret && ret["code"] === 0) {

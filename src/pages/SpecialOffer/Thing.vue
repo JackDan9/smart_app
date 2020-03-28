@@ -68,7 +68,7 @@ import Loading from "@/components/Loading";
 import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 import WxShare from "@/utils/wx/wx";
 export default {
   components: {
@@ -88,14 +88,14 @@ export default {
   },
   mounted() {
     const id = +this.$route.params.id;
-    Store.setIntoPage(2);
+    storage.setIntoPage(2);
     if (!id) {
       this.isError = true;
       this.error = "参数错误";
     } else {
       this.isLoading = true;
-      if (Store.getAuthUid()) {
-        this.username = Store.getUserName();
+      if (storage.getAuthUid()) {
+        this.username = storage.getUserName();
       }
       this.getData();
       this.getWx();

@@ -89,8 +89,8 @@
     </div>
     <div class="banner">
       <mt-swipe :auto="5000" class="swipe2" v-if="ft_ads">
-        <template v-for="ft_ad in ft_ads">
-          <mt-swipe-item class="swipe-item">
+        <template v-for="(ft_ad, ft_ad_index) in ft_ads">
+          <mt-swipe-item class="swipe-item" v-bind:key="ft_ad_index">
             <a v-on:click="changeClick(ft_ad['id'],ft_ad['url'])">
               <img v-if="ft_ad['picture']" :src="fullUrl(ft_ad['picture'])+'!748.378'" />
             </a>
@@ -169,8 +169,8 @@
       </router-link>
       <div class="con">
         <ul>
-          <template v-for="shop in shops">
-            <li>
+          <template v-for="(shop, shop_index) in shops">
+            <li v-bind:key="shop_index">
               <a v-on:click="changeClick(shop['id'],shop['url'])">
                 <div class="img">
                   <img
@@ -243,140 +243,140 @@
 </template>
 
 <script>
-import Error from "@/components/Error";
-import Tab from "@/components/Tab";
-import Config from "@/config/config";
-import Store from "@/store/store";
+  import Error from "@/components/Error";
+  import Tab from "@/components/Tab";
+  import Config from "@/config/config";
+  import Storage from "@/storage/storage";
 
-export default {
-  components: {
-    Error,
-    Tab
-  },
-  data() {
-    const indexData = Store.getIndex();
-    const say = indexData && indexData["say"];
-    const ads = indexData && indexData["ads"];
-    const ft_ads = indexData && indexData["ft_ads"];
-    const news = indexData && indexData["news"];
-    const charitys = indexData && indexData["charitys"];
-    const shops = indexData && indexData["shops"];
-    return {
-      say: say,
-      ads: ads,
-      ft_ads: ft_ads,
-      news: news,
-      shops: shops,
-      charitys: charitys,
-      isError: false,
-      error: "",
-      indexUrl: "index/view/",
-      adUrl: "ads/hit/",
-      whoami: "user/whoami/"
-    };
-  },
-
-  mounted() {
-    if (this.$route.query.ver && this.$route.query.ver == "V2") {
-      Store.setVersion(this.$route.query.ver);
-    }
-    this.getData();
-    if (Store.getAuthUid()) {
-      this.$http.get(this.whoami, {}).then(response => {
-        const ret = JSON.parse(response.data);
-        if (ret["code"] === 0) {
-          this.clickApp(ret["username"], ret["despass"]);
-        }
-      });
-    } else {
-      //this.clickApp('zhxy','')
-    }
-  },
-
-  watch: {
-    $route(to, from) {
-      this.getData(() => window.scrollTo(0, 0));
-    }
-  },
-
-  methods: {
-    fullUrl: function(url) {
-      return Config.baseUrl + url;
+  export default {
+    components: {
+      Error,
+      Tab
     },
-    defaultPicUrl: function() {
-      return Config.defaultPic;
-    },
-
-    changeClick: function(id, url) {
-      this.$http.post(this.adUrl, { id: id }).then(response => {
-        window.location.href = url;
-      });
-    },
-    loadMore() {
-      document.addEventListener("scroll", this.winScroll(), false);
-    },
-
-    winScroll: function() {
-      var scrollTop = document.body.scrollTop > 100 ? 100 : document.body.scrollTop;
-      document.getElementsByClassName("company-top-nav")[0].style.background = "rgba(0, 0, 0, " + scrollTop / 100 + ")";
-    },
-
-    charityClick: function(id) {
-      window.location.href = "#/charity/" + id;
-    },
-    clickApp: function(username, despass) {
-      var tags = [username, "aa"];
-      var share = {
-        action: "getUserMessage",
-        Authorization: "Xyapp " + Store.getAuthUid(),
-        tags: tags,
-        user: despass,
-        deviceWIFI: "http://117.158.161.250",
-        url: "http://www.baidu.com?" + new Date().getTime()
+    data() {
+      const indexData = Storage.getIndex();
+      const say = indexData && indexData["say"];
+      const ads = indexData && indexData["ads"];
+      const ft_ads = indexData && indexData["ft_ads"];
+      const news = indexData && indexData["news"];
+      const charitys = indexData && indexData["charitys"];
+      const shops = indexData && indexData["shops"];
+      return {
+        say: say,
+        ads: ads,
+        ft_ads: ft_ads,
+        news: news,
+        shops: shops,
+        charitys: charitys,
+        isError: false,
+        error: "",
+        indexUrl: "index/view/",
+        adUrl: "ads/hit/",
+        whoami: "user/whoami/"
       };
-      if (window.postMessage) window.postMessage(JSON.stringify(share), "*");
-      return true;
     },
 
-    getData(callback) {
-      this.$http.get(this.indexUrl, {}).then(
-        response => {
-          if (typeof response.data === "object") {
-            var ret = response.data;
-          } else {
-            var ret = JSON.parse(response.data || "[]");
+    mounted() {
+      if (this.$route.query.ver && this.$route.query.ver == "V2") {
+        Storage.setVersion(this.$route.query.ver);
+      }
+      this.getData();
+      if (Storage.getAuthUid()) {
+        this.$http.get(this.whoami, {}).then(response => {
+          const ret = JSON.parse(response.data);
+          if (ret["code"] === 0) {
+            this.clickApp(ret["username"], ret["despass"]);
           }
-          if (ret && ret.code === 0) {
-            this.ads = ret["data"]["ads"];
-            this.news = ret["data"]["news"];
-            this.say = ret["data"]["say"];
-            this.shops = ret["data"]["shop"];
-            this.ft_ads = ret["data"]["ft_ads"];
-            this.charitys = ret["data"]["charity"];
-            const indexData = {
-              say: this.say,
-              news: this.news,
-              ads: this.ads,
-              ft_ads: this.ft_ads,
-              shops: this.shops,
-              charitys: this.charitys
-            };
-            Store.setIndex(indexData);
-          } else {
-            this.error = (ret && ret.msg) || "";
+        });
+      } else {
+        //this.clickApp('zhxy','')
+      }
+    },
+
+    watch: {
+      $route(to, from) {
+        this.getData(() => window.scrollTo(0, 0));
+      }
+    },
+
+    methods: {
+      fullUrl: function(url) {
+        return Config.baseUrl + url;
+      },
+      defaultPicUrl: function() {
+        return Config.defaultPic;
+      },
+
+      changeClick: function(id, url) {
+        this.$http.post(this.adUrl, { id: id }).then(response => {
+          window.location.href = url;
+        });
+      },
+      loadMore() {
+        document.addEventListener("scroll", this.winScroll(), false);
+      },
+
+      winScroll: function() {
+        var scrollTop = document.body.scrollTop > 100 ? 100 : document.body.scrollTop;
+        document.getElementsByClassName("company-top-nav")[0].style.background = "rgba(0, 0, 0, " + scrollTop / 100 + ")";
+      },
+
+      charityClick: function(id) {
+        window.location.href = "#/charity/" + id;
+      },
+      clickApp: function(username, despass) {
+        var tags = [username, "aa"];
+        var share = {
+          action: "getUserMessage",
+          Authorization: "Xyapp " + Storage.getAuthUid(),
+          tags: tags,
+          user: despass,
+          deviceWIFI: "http://117.158.161.250",
+          url: "http://www.baidu.com?" + new Date().getTime()
+        };
+        if (window.postMessage) window.postMessage(JSON.stringify(share), "*");
+        return true;
+      },
+
+      getData(callback) {
+        this.$http.get(this.indexUrl, {}).then(
+          response => {
+            if (typeof response.data === "object") {
+              var ret = response.data;
+            } else {
+              var ret = JSON.parse(response.data || "[]");
+            }
+            if (ret && ret.code === 0) {
+              this.ads = ret["data"]["ads"];
+              this.news = ret["data"]["news"];
+              this.say = ret["data"]["say"];
+              this.shops = ret["data"]["shop"];
+              this.ft_ads = ret["data"]["ft_ads"];
+              this.charitys = ret["data"]["charity"];
+              const indexData = {
+                say: this.say,
+                news: this.news,
+                ads: this.ads,
+                ft_ads: this.ft_ads,
+                shops: this.shops,
+                charitys: this.charitys
+              };
+              Storage.setIndex(indexData);
+            } else {
+              this.error = (ret && ret.msg) || "";
+              this.isError = true;
+            }
+            if (callback) callback.call(this);
+          },
+          response => {
             this.isError = true;
+            this.error = "";
+            if (callback) callback.call(this);
           }
-          if (callback) callback.call(this);
-        },
-        response => {
-          this.isError = true;
-          this.error = "";
-          if (callback) callback.call(this);
-        }
-      );
+        );
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped>

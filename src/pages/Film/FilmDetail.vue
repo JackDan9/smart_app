@@ -61,15 +61,17 @@
 </template>
 
 <script>
+import { Toast } from "mint-ui";
+
 import Error from "@/components/Error";
 import Config from "@/config/config";
-import { Toast } from "mint-ui";
-import Store from "@/store/store";
+import Storage from "@/storage/storage";
 
 export default {
   components: {
     Error
   },
+
   data() {
     return {
       isError: false,
@@ -82,6 +84,24 @@ export default {
       videoUrl: "video/view/"
     };
   },
+
+  /**
+   * computed实现原理
+   * computed本质是一个惰性求值的观察者。
+   * 
+   * computed内部实现了一个惰性的watcher, 也就是computed watcher, computed watcher不会立刻求值, 同时持有一个dep实例。
+   * 其内部通过this.dirty属性标记计算属性是否需要重新求值。
+   * 
+   * 当computed的依赖状态发生变化时，就会通知这个惰性的watcher。
+   * 
+   * computed watcher通过this.dep.subs.length判断有没有订阅者。
+   * 
+   * 有的话，会重新计算，然后对比新旧值，如果变化了，会重新渲染。(Vue想确保不仅仅是计算属性依赖的值发生变化，而是当计算属性最终计算的值发生变化时才会触发渲染watcher重新渲染，本质上是一种优化。)
+   * 
+   * 没有的话，仅仅把this.dirty = true。(当计算属性依赖于其他数据时，属性并不会立即重新计算, 只有之后其他地方需要读取属性的时候, 它才会真正计算, 即具备lazy(懒计算)特性。)
+   * 
+   */
+
   computed: {
     minHeight: () => {
       return document.body.clientHeight >= 400 &&
@@ -90,15 +110,49 @@ export default {
         : window.screen.height;
     }
   },
-  mounted() {
-    const id = +this.$route.params.id;
-    this.getData();
-  },
+
+  /**
+   * computed vs watch
+   * 
+   * 
+   * 区别
+   * 类型：{ [key: string]: Function | { get: Function, set: Function } }
+   * 详细：
+   * 计算属性将被混入到 Vue 实例中。所有 getter 和 setter 的 this 上下文自动地绑定为 Vue 实例。
+   * 注意如果你为一个计算属性使用了箭头函数，则 this 不会指向这个组件的实例，不过你仍然可以将其实例作为函数的第一个参数来访问。
+   * 
+   * computed: {
+   *     aDouble: vm => vm.a * a
+   * }
+   * 计算属性的结果会被缓存，除非依赖的响应式属性变化才会重新计算。注意，如果某个依赖 (比如非响应式属性) 在该实例范畴之外，则计算属性是不会被更新的。
+   * 
+   * computed计算属性: 依赖其他属性值, 并且computed的值有缓存, 只有它依赖的属性值发生改变, 下一次获取computed的值时才会重新计算computed的值。
+   * 
+   * watch
+   * 类型：{ [key: string]: string | Function | Object | Array }
+   * 详细：
+   * 一个对象，键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象。Vue 实例将会在实例化时调用 $watch()，遍历 watch 对象的每一个属性。
+   * 
+   * 注意，不应该使用箭头函数来定义 watcher 函数 (例如 searchQuery: newValue => this.updateAutocomplete(newValue))。理由是箭头函数绑定了父级作用域的上下文，所以 this 将不会按照期望指向 Vue 实例，this.updateAutocomplete 将是 undefined。
+   * 
+   * watch侦听器: 更多的时[观察]的作用, 无缓存性, 类似于某些数据的监听回调, 每当监听的数据变化时都会执行回调进行后续操作。
+   * 
+   * 运用场景:
+   * 当我们需要进行数值计算, 并且依赖于其他数据时, 应该使用computed, 因为可以利用computed的缓存特性, 避免每次获取值时, 都要重新计算。
+   * 
+   * 当我们需要在数据变化时执行异步或者开销较大的操作时, 应该使用watch, 使用watch选项允许我们执行异步操作(访问一个API), 限制我们执行该操作的频率, 并在我们得到最终结果前, 设置中间状态。这些都是计算属性无法做大的。
+   * 
+   */
 
   watch: {
     $route(to, from) {
       this.getData(() => window.scrollTo(0, 0));
     }
+  },
+
+  mounted() {
+    const id = +this.$route.params.id;
+    this.getData();
   },
 
   methods: {

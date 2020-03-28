@@ -32,7 +32,7 @@
 </template>
 <script>
 import { Toast } from "mint-ui";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 export default {
   data() {
     return {
@@ -51,11 +51,11 @@ export default {
     };
   },
   beforeMount: function() {
-    if (Store.getAuthUid()) {
+    if (storage.getAuthUid()) {
       this.$http.get(this.whoami, {}).then(response => {
         const ret = JSON.parse(response.data);
         if (ret.code === 0) {
-          Store.getUserMessage(ret.username, ret.despass, Store.getAuthUid());
+          storage.getUserMessage(ret.username, ret.despass, storage.getAuthUid());
           this.$router.replace({ path: "/user" });
         }
       });
@@ -135,9 +135,9 @@ export default {
         response => {
           const ret = JSON.parse(response.data);
           if (ret.code === 0) {
-            Store.setAuthIid(ret.token);
+            storage.setAuthIid(ret.token);
             Toast("校验成功");
-            Store.getUserMessage(ret.username2, ret.despass, ret.token);
+            storage.getUserMessage(ret.username2, ret.despass, ret.token);
             this.$router.replace({ path: "/" });
           } else {
             Toast(ret.msg);

@@ -117,7 +117,7 @@
 import Error from "@/components/Error";
 import Tab from "@/components/Tab";
 import Config from "@/config/config";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 import { Toast } from "mint-ui";
 import WxShare from "@/utils/wx/wx";
 
@@ -152,7 +152,7 @@ export default {
       this.isError = true;
       this.error = "参数错误";
     } else {
-      if (Store.getAuthUid()) {
+      if (storage.getAuthUid()) {
         this.$http.get(this.whoami, {}).then(response => {
           const ret = JSON.parse(response.data);
           if (ret && ret["code"] === 0) {

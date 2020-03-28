@@ -33,27 +33,27 @@
   </div>
 </template>
 <script>
-export default {
-  methods: {
-    goBack: function() {
-      this.$router.go(-1);
+  export default {
+    methods: {
+      goBack: function() {
+        this.$router.go(-1);
+      }
     }
-  }
-};
+  };
 </script>
 <style>
-/* 主页 */
-.allPage {
-  display: block;
-  padding: 0.5rem 0.1rem;
-}
-.allPage a {
-  display: inline-block;
-  width: 49%;
-  margin-top: 0.05rem;
-}
-.allPage a img {
-  display: inline-block;
-  width: 100%;
-}
+  /* 主页 */
+  .allPage {
+    display: block;
+    padding: 0.5rem 0.1rem;
+  }
+  .allPage a {
+    display: inline-block;
+    width: 49%;
+    margin-top: 0.05rem;
+  }
+  .allPage a img {
+    display: inline-block;
+    width: 100%;
+  }
 </style>

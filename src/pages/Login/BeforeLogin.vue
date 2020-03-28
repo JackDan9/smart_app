@@ -19,7 +19,7 @@
 </template>
 <script>
 import { Toast, MessageBox } from "mint-ui";
-import Store from "@/store/store";
+import storage from "@/storage/storage";
 export default {
   data() {
     return {
@@ -57,9 +57,9 @@ export default {
           .then(response => {
             const ret = JSON.parse(response.data);
             if (ret.code === 0) {
-              Store.setAuthIid(ret.token);
-              Store.setUserName(ret.username);
-              Store.getUserMessage(ret.username2, ret.despass, ret.token);
+              storage.setAuthIid(ret.token);
+              storage.setUserName(ret.username);
+              storage.getUserMessage(ret.username2, ret.despass, ret.token);
               this.$router.replace("/user/");
             } else {
               this.openid = this.$route.query.openid;
@@ -76,11 +76,11 @@ export default {
               });
             }
           });
-      } else if (Store.getAuthUid()) {
+      } else if (storage.getAuthUid()) {
         this.$http.get(this.whoami, {}).then(response => {
           const ret = JSON.parse(response.data);
           if (ret.code === 0) {
-            Store.getUserMessage(ret.username, ret.despass, Store.getAuthUid());
+            storage.getUserMessage(ret.username, ret.despass, storage.getAuthUid());
             this.$router.replace({ path: "/user" });
           }
         });
